@@ -6,8 +6,9 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\Table(name="puntos_interes")
  */
-class PuntosInteres
+class PuntoInteres
 {
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -50,5 +51,149 @@ class PuntosInteres
      */
     protected $localidad;
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Categoria",cascade={"persist"})
+     */
+    protected $categorias;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Foto",cascade={"persist"}, mappedBy="puntoInteres")
+     */
+    protected $fotos;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Video",cascade={"persist"}, mappedBy="puntoInteres")
+     */
+    protected $videos;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Precio",cascade={"persist"}, mappedBy="puntoInteres")
+     */
+    protected $precios;
+
+    public function __contruct()
+    {
+        $this->categorias = new ArrayCollection();
+        $this->fotos = new ArrayCollection();
+        $this->videos = new ArrayCollection();
+        $this->precio = new ArrayCollection();
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getNombre()
+    {
+        return $this->nombre;
+    }
+
+    public function setNombre($aNombre)
+    {
+        $this->nombre = $aNombre;
+    }
+
+    public function getDescripcion()
+    {
+        return $this->descripcion;
+    }
+
+    public function setDescripcion($aDescripcion)
+    {
+        $this->descripcion = $aDescripcion;
+    }
+
+    public function getLatitud()
+    {
+        return $this->latitud;
+    }
+
+    public function setLatitud($aLatitud)
+    {
+        $this->latitud = $aLatitud;
+    }
+
+    public function getLongitud()
+    {
+        return $this->longitud;
+    }
+
+    public function setLongitud($aLongitud)
+    {
+        $this->longitud = $aLongitud;
+    }
+
+    public function getLinkInteres()
+    {
+        return $this->link_interes;
+    }
+
+    public function setLinkInteres($aLinkInteres)
+    {
+        $this->link_interes = $aLinkInteres;
+    }
+
+    public function getDireccion()
+    {
+        return $this->direccion;
+    }
+
+    public function setDireccion($aDireccion)
+    {
+        $this->direccion = $aDireccion;
+    }
+
+    public function getCategorias()
+    {
+        return $this->categorias;
+    }
+
+    public function addCategorias($aCategorias)
+    {
+        $this->categorias[] = $aCategorias;
+    }
+
+    public function getLocalidad()
+    {
+        return $this->localidad;
+    }
+
+    public function setLocalidad(Localidad $aLocalidad)
+    {
+        $this->localidad = $aLocalidad;
+    }
+
+    public function getFotos()
+    {
+        return $this->fotos;
+    }
+
+    public function addFoto(Foto $aFoto)
+    {
+        $this->fotos[] = $aFoto;
+        $aFoto->setPuntoInteres($this);
+    }
+
+    public function getVideos()
+    {
+        return $this->videos;
+    }
+
+    public function addVideo(Video $aVideos)
+    {
+        $this->videos[] = $aVideos;
+        $aVideos->setPuntoInteres($this);
+    }
+
+    public function getPrecios()
+    {
+        return $this->precios;
+    }
+
+    public function addPrecio(Precio $aPrecios)
+    {
+        $this->precios[] = $aPrecios;
+        $aPrecios->setPuntoInteres($this);
+    }
 }

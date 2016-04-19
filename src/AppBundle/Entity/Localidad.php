@@ -27,27 +27,27 @@ class Localidad
 
     public function getId()
     {
-        return $this -> id;
+        return $this->id;
     }
 
     public function getNombre()
     {
-        return $this -> nombre;
+        return $this->nombre;
     }
 
     public function getCodigoPostal()
     {
-        return $this -> codigo_postal;
+        return $this->codigo_postal;
     }
 
     public function setNombre($aNombre)
     {
-        $this -> nombre = $aNombre;
+        $this->nombre = $aNombre;
     }
 
     public function setCodigoPostal($aCodigoPostal)
     {
-        $this -> codigo_postal = $aCodigoPostal;
+        $this->codigo_postal = $aCodigoPostal;
     }
 
 }

@@ -20,4 +20,28 @@ class Video
      */
     protected $link_video;
 
+    /**
+    * @ORM\ManyToOne(targetEntity="PuntoInteres", inversedBy="videos")
+    */
+    protected $puntoInteres;
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getLink()
+    {
+        return $this->link_video;
+    }
+
+    public function setLink($aLinkVideo)
+    {
+        $this->link_video = $aLinkVideo;
+    }
+    
+    public function setPuntoInteres(PuntoInteres $puntoInteres)
+    {
+        $this->puntoInteres = $puntoInteres;
+    }
  }

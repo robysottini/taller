@@ -14,6 +14,10 @@ class Precio
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+    /**
+    * @ORM\ManyToOne(targetEntity="PuntoInteres", inversedBy="precios")
+    */
+    protected $puntoInteres;
 
     /**
      * @ORM\Column(type="string",length=50)
@@ -25,4 +29,26 @@ class Precio
      */
     protected $valor;
 
+    public function getTipo()
+    {
+        return $this->tipo;
+    }
+    public function getValor()
+    {
+        return $this->valor;
+    }
+    public function setTipo($aTipo)
+    {
+        $this->tipo = $aTipo;
+    }
+    public function setValor($aValor)
+    {
+        $this->valor = $aValor;
+    }
+
+
+    public function setPuntoInteres(PuntoInteres $puntoInteres)
+    {
+        $this->puntoInteres = $puntoInteres;
+    }
 }

@@ -20,4 +20,28 @@ class Foto
      */
     protected $link_foto;
 
+    /**
+    * @ORM\ManyToOne(targetEntity="PuntoInteres", inversedBy="fotos")
+    */
+    protected $puntoInteres;
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getLink()
+    {
+        return $this->link_foto;
+    }
+
+    public function setLink($aLinkFoto)
+    {
+        $this->link_foto = $aLinkFoto;
+    }
+
+    public function setPuntoInteres(PuntoInteres $puntoInteres)
+    {
+        $this->puntoInteres = $puntoInteres;
+    }
 }
