@@ -16,12 +16,12 @@ class Localidad
     protected $id;
 
     /**
-     * @ORM\Column(type="string",length=50)
+     * @ORM\Column(type="string", length=50)
      */
     protected $nombre;
 
     /**
-     * @ORM\Column(type="string",length=10)
+     * @ORM\Column(type="string", length=10)
      */
     protected $codigo_postal;
 

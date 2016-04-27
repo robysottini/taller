@@ -17,32 +17,32 @@ class PuntoInteres
     protected $id;
 
     /**
-     * @ORM\Column(type="string",length=50)
+     * @ORM\Column(type="string", length=50)
      */
     protected $nombre;
 
     /**
-     * @ORM\Column(type="string",length=50)
+     * @ORM\Column(type="string", length=50)
      */
     protected $descripcion;
 
     /**
-     * @ORM\Column(type="string",length=50)
+     * @ORM\Column(type="string", length=50)
      */
     protected $latitud;
 
     /**
-     * @ORM\Column(type="string",length=50)
+     * @ORM\Column(type="string", length=50)
      */
     protected $longitud;
 
     /**
-     * @ORM\Column(type="string",length=256)
+     * @ORM\Column(type="string", length=256)
      */
     protected $link_interes;
 
     /**
-     * @ORM\Column(type="string",length=256)
+     * @ORM\Column(type="string", length=256)
      */
     protected $direccion;
 
@@ -52,22 +52,22 @@ class PuntoInteres
     protected $localidad;
 
     /**
-     * @ORM\ManyToMany(targetEntity="Categoria",cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="Categoria", cascade={"persist"})
      */
     protected $categorias;
 
     /**
-     * @ORM\OneToMany(targetEntity="Foto",cascade={"persist"}, mappedBy="puntoInteres")
+     * @ORM\OneToMany(targetEntity="Foto", cascade={"persist"}, mappedBy="puntoInteres")
      */
     protected $fotos;
 
     /**
-     * @ORM\OneToMany(targetEntity="Video",cascade={"persist"}, mappedBy="puntoInteres")
+     * @ORM\OneToMany(targetEntity="Video", cascade={"persist"}, mappedBy="puntoInteres")
      */
     protected $videos;
 
     /**
-     * @ORM\OneToMany(targetEntity="Precio",cascade={"persist"}, mappedBy="puntoInteres")
+     * @ORM\OneToMany(targetEntity="Precio", cascade={"persist"}, mappedBy="puntoInteres")
      */
     protected $precios;
 

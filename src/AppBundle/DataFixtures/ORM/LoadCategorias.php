@@ -14,19 +14,19 @@ class LoadCategorias extends AbstractFixture implements OrderedFixtureInterface
 	public function load(ObjectManager $manager)
 	{
 		$museo = new Categoria();
-		$museo -> setNombre('Museos');
+		$museo->setNombre('Museos');
 		$puntoHistorico = new Categoria();
-		$puntoHistorico -> setNombre('Puntos históricos');
+		$puntoHistorico->setNombre('Puntos históricos');
 		$excursion = new Categoria();
-		$excursion -> setNombre('Puntos históricos');
+		$excursion->setNombre('Puntos históricos');
 
-		$manager -> persist($museo);
-		$manager -> persist($excursion);
-		$manager -> flush();
+		$manager->persist($museo);
+		$manager->persist($excursion);
+		$manager->flush();
 
-		$this -> addReference('museo', $museo);
-		$this -> addReference('puntoHistorico', $puntoHistorico);
-		$this -> addReference('excursion', $excursion);
+		$this->addReference('museo', $museo);
+		$this->addReference('puntoHistorico', $puntoHistorico);
+		$this->addReference('excursion', $excursion);
 	}
 
 	public function getOrder()

@@ -20,12 +20,12 @@ class Precio
     protected $puntoInteres;
 
     /**
-     * @ORM\Column(type="string",length=50)
+     * @ORM\Column(type="string", length=50)
      */
     protected $tipo;
 
     /**
-     * @ORM\Column(type="float",scale=2)
+     * @ORM\Column(type="float", scale=2)
      */
     protected $valor;
 
