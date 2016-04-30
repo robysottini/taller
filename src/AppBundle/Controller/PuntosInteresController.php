@@ -8,13 +8,13 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 class PuntosInteresController extends Controller
 {
-	/**
-	 * @Route("/puntosinteres/index", name="puntosinteres_index")
-	 */
-	public function indexAction()
-	{
-		$puntosInteres = $this->getDoctrine()->getRepository('AppBundle:PuntoInteres')->findAll();
+    /**
+     * @Route("/puntosinteres/index", name="puntosinteres_index")
+     */
+    public function indexAction()
+    {
+        $puntosInteres = $this->getDoctrine()->getRepository('AppBundle:PuntoInteres')->findAll();
 
-		return $this->render('AppBundle:puntosinteres:index.html.twig', array('puntosinteres' => $puntosInteres));
-	}
+        return $this->render('AppBundle:puntosinteres:index.html.twig', array('puntosinteres' => $puntosInteres));
+    }
 }

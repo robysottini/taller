@@ -1,0 +1,3 @@
+TODO:
+
+- Descargar bootstrap.css. No usar el CDN.
