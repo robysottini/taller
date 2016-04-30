@@ -1,0 +1,22 @@
+{% extends '::base.html.twig' %}
+
+{% block title %} Puntos de interés {% endblock %}
+
+{% block body %} 
+	<h1>Puntos de interés</h1>
+
+	<table class="table table-bordered table-hover">
+		<thead>
+			<tr>
+				<th>Nombre</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for puntointeres in puntosinteres %}
+			<tr>
+				<td>{{ puntointeres.nombre }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}
