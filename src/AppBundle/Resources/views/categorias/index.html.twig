@@ -1,9 +1,9 @@
 {% extends '::base.html.twig' %}
 
-{% block title %} Localidades {% endblock %}
+{% block title %} Categorias {% endblock %}
 
 {% block body %} 
-    <h1>Localidades</h1>
+    <h1>Categorias</h1>
 
     <table class="table table-bordered table-hover">
         <thead>
@@ -12,9 +12,9 @@
             </tr>
         </thead>
         <tbody>
-            {% for localidad in localidades %}
+            {% for categoria in categorias %}
             <tr>
-                <td>{{ localidad.nombre }}</td>
+                <td>{{ categoria.nombre }}</td>
             </tr>
             {% endfor %}
         </tbody>
