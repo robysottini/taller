@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es-AR">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,10 +11,35 @@
         <script src="../../../vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
 
         <title>{% block title %}¡Bienvenido!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
     </head>
     <body>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button 
+                        type="button" 
+                        class="navbar-toggle collapsed" 
+                        data-toggle="collapse" 
+                        data-target="#bs-example-navbar-collapse-1" 
+                        aria-expanded="false">
+                    </button>
+                    <a class="navbar-brand" href="#">Turismo</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li >
+                            <a href="/puntos/web/app_dev.php/puntosinteres/index">Puntos de interés</a>
+                        </li>
+                        <li>
+                            <a href="/puntos/web/app_dev.php/localidades/index">Localidades</a>
+                        </li>
+                        <li>
+                            <a href="/puntos/web/app_dev.php/categorias/index">Categorías</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
         {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
 </html>

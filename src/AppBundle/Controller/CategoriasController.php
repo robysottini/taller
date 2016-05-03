@@ -13,7 +13,7 @@ class CategoriasController extends Controller
      */
     public function indexAction()
     {
-        $categorias = $this->getDoctrine()->getRepository('AppBundle:Localidad')->findAll();
+        $categorias = $this->getDoctrine()->getRepository('AppBundle:Categoria')->findAll();
 
         return $this->render('AppBundle:categorias:index.html.twig', array('categorias' => $categorias));
     }
