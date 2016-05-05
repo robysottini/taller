@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class PuntosInteresController extends Controller
 {
     /**
-     * @Route("/puntosinteres/index", name="puntosinteres_index")
+     * @Route("/puntos-interes", name="puntosinteres_index")
      */
     public function indexAction()
     {

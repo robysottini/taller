@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class CategoriasController extends Controller
 {
     /**
-     * @Route("/categorias/index", name="categorias_index")
+     * @Route("/categorias", name="categorias_index")
      */
     public function indexAction()
     {
