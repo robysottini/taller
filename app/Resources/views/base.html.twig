@@ -6,9 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Bootstrap -->
-        <link rel="stylesheet" href="../../../vendor/twbs/bootstrap/dist/css/bootstrap.min.css">
-        <script src="../../../vendor/components/jquery/jquery.min.js"></script>
-        <script src="../../../vendor/twbs/bootstrap/dist/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+        <script src="{{ asset('assets/js/jquery-2.2.3.min.js') }}"></script>
+        <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 
         <title>{% block title %}¡Bienvenido!{% endblock %}</title>
     </head>
@@ -23,19 +23,19 @@
                         data-target="#bs-example-navbar-collapse-1" 
                         aria-expanded="false">
                     </button>
-                    <a class="navbar-brand" href="#">Turismo</a>
+                    <a class="navbar-brand" href="{{ url('inicio') }}">Turismo</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li >
-                            <a href="/puntos/web/app_dev.php/puntosinteres/index">Puntos de interés</a>
+                            <a href="{{ url('puntosinteres_index') }}">Puntos de interés</a>
                         </li>
                         <li>
-                            <a href="/puntos/web/app_dev.php/localidades/index">Localidades</a>
+                            <a href="{{ url('localidades_index') }}">Localidades</a>
                         </li>
                         <li>
-                            <a href="/puntos/web/app_dev.php/categorias/index">Categorías</a>
+                            <a href="{{ url('categorias_index') }}">Categorías</a>
                         </li>
                     </ul>
                 </div>
