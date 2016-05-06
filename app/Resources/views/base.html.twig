@@ -11,35 +11,141 @@
         <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
 
         <title>{% block title %}¡Bienvenido!{% endblock %}</title>
-    </head>
-    <body>
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button 
-                        type="button" 
-                        class="navbar-toggle collapsed" 
-                        data-toggle="collapse" 
-                        data-target="#bs-example-navbar-collapse-1" 
-                        aria-expanded="false">
-                    </button>
-                    <a class="navbar-brand" href="{{ url('inicio') }}">Turismo</a>
-                </div>
+      
+      <style>  
 
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav">
-                        <li >
-                            <a href="{{ url('puntosinteres_index') }}">Puntos de interés</a>
-                        </li>
-                        <li>
-                            <a href="{{ url('localidades_index') }}">Localidades</a>
-                        </li>
-                        <li>
-                            <a href="{{ url('categorias_index') }}">Categorías</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        {% block body %}{% endblock %}
+         html,body {
+            background-color: #E2E2E2;
+         }
+         .container {
+            box-shadow: 0px 0px 15px 1px #2e353d;
+            background: #2e353d;
+            padding: 40px 0px 0px 0px;
+            min-height: 600px;
+         }
+
+         /*--------------------------------------------------------------
+         BARRA NAVEGACION
+         --------------------------------------------------------------*/
+         #nav-bar-principal{
+            padding-top:5px;
+            margin: 0px;
+         }
+         .navbar{
+            background-color: #2e353d;
+            margin: 0px; 
+         }
+         .navbar .buscador{
+            float: right;
+         }                  
+         .navbar-toggle .icon-bar{
+            border: solid 1px white !important;
+         }
+         a.navbar-brand 
+         {
+            color: white;
+            font-size: 26px;
+            margin-left: 2em;
+         }
+
+         /*--------------------------------------------------------------
+         VISTAS COMUNES EN TODAS LAS PAGINAS
+         --------------------------------------------------------------*/
+         .barra-lateral
+         {
+            background: #2e353d;
+            color: white;
+         }
+         .main-content-area
+         {
+            background: #fff;
+            /*background-image: url(http://placehold.it/1280x1024);*/
+            /*background-position: 50% 50%; /* image centered on screen */
+            color: black;
+            min-height: 600px;
+         }
+         .main-content-area .barra-lateral
+         {        
+            
+         }
+         .footer-principal
+         {
+         }
+         .footer 
+         {
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            background-color: black;
+            color: white;
+            padding: 5px;
+        }
+
+      </style>
+   </head>
+   <body>
+
+      <header class="navbar navbar-fixed-top">
+         
+         <div class="navbar-header">
+            <button aria-expanded="false" class="navbar-toggle collapsed" data-target="#nav-bar-principal" data-toggle="collapse" type="button">
+               <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+            </button> 
+            <a class="navbar-brand" href="{{ url('inicio') }}">Conocer Tierra del Fuego</a>
+         </div>
+
+         <div class="collapse navbar-collapse" id="nav-bar-principal">
+            <ul class="nav navbar-nav visible-xs-block">
+               <li>
+                  <a href="{{ url('puntosinteres_index') }}">Puntos de interés</a>
+               </li>
+               <li>
+                  <a href="{{ url('localidades_index') }}">Localidades</a>
+               </li>
+               <li>
+                  <a href="{{ url('categorias_index') }}">Categorías</a>
+               </li>
+            </ul>
+
+            <div class="buscador">
+               <form class="navbar-form" role="search">
+                  <div class="form-group">
+                     <input class="form-control" placeholder="Buscar..."
+                        type="text">
+                  </div>
+                  <button class="btn btn-primary" type="submit"><span aria-hidden="true" class="glyphicon glyphicon-search"></span>
+                  </button>
+                  <a href="#" class="btn btn-success" style="margin-left: 20px">Login</a>
+               </form>
+            </div><!--fin .buscador -->
+
+         </div>
+      </header>
+
+      <div class="container">
+
+         <div class="row-fluid">
+
+            <div class="barra-lateral col-sm-4 col-md-3 lg-md-3 visible-sm-block visible-md-block visible-lg-block hidden-xs">
+               <img class="thumbnail" src="https://conocerushuaia.files.wordpress.com/2016/02/abismo01.jpg?w=500" style="width: 100%; margin-top: 30px">
+                  <a href="{{ url('puntosinteres_index') }}"><h4>Puntos de interes</h4></a>
+                  <a href="{{ url('localidades_index') }}"><h4>Localidades</h4></a>
+                  <a href="{{ url('categorias_index') }}"><h4>Categorías</h4></a>
+            </div> <!--fin barra-lateral-->
+
+            <div class="main-content-area col-sm-8 col-md-9 lg-md-9">
+            
+               {% block body %}{% endblock %}
+            
+            </div><!--fin main-content-area-->
+         </div> <!--fin row-fluid-->
+      </div> <!--fin container-->
+
+    <footer class="footer">
+       <div class="text-center">
+          <h5>UNIVERSIDAD NACIONAL TIERRA DEL FUEGO - TALLER DE NUEVAS TECNOLOGIAS</h5>
+       </div>
+    </footer>
+   
+   </body>
 </html>
