@@ -3,46 +3,61 @@
 {% block title %} Puntos de interés {% endblock %}
 
 {% block body %}
-    <section>
+    
+    <section class="row-fluid">
         <h1>Puntos de interés</h1>
 
-        <table class="table table-bordered table-hover">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Descripción</th>
-                    <th>Latitud</th>
-                    <th>Longitud</th>
-                    <th>Link de interés</th>
-                    <th>Dirección</th>
-                    <!--
-                    <th>Localidad</th>
-                    <th>Categoría</th>
-                    <th>Foto</th>
-                    <th>Video</th>
-                    <th>Precio</th>
-                    -->
-                </tr>
-            </thead>
-            <tbody>
-                {% for puntointeres in puntosinteres %}
-                    <tr>
-                        <td>{{ puntointeres.nombre }}</td>
-                        <td>{{ puntointeres.descripcion }}</td>
-                        <td>{{ puntointeres.latitud }}</td>
-                        <td>{{ puntointeres.longitud }}</td>
-                        <td><a href="http://{{ puntointeres.linkinteres }}">{{ puntointeres.linkinteres }}</a></td>
-                        <td>{{ puntointeres.direccion }}</td>
-                        {#
-                        <td>{{ puntointeres.campo }}</td>
-                        <td>{{ puntointeres.campo }}</td>
-                        <td>{{ puntointeres.campo }}</td>
-                        <td>{{ puntointeres.campo }}</td>
-                        <td>{{ puntointeres.campo }}</td>
-                        #}
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+        {% for puntointeres in puntosinteres %}
+            <article class="articulo-punto-interes well">
+                <div class="nombre">
+                    <h4>{{ puntointeres.nombre }}</h4>
+                </div>
+
+                <div class="descripcion-puntos-interes">
+                    {{ puntointeres.descripcion }}
+                </div>
+
+                <div class="mapa-puntos-interes">
+                    {{ puntointeres.latitud }}
+                    <br/>
+                    {{ puntointeres.longitud }}
+                </div>
+
+                <div class="links-puntos-interes">
+                    <a href="http://{{ puntointeres.linkinteres }}">{{ puntointeres.linkinteres }}</a>                    
+                </div>
+
+                <div class="direccion-interes">
+                    {{ puntointeres.direccion }}
+                </div>
+
+                <div class="categorias-puntos-interes">
+                    {% for cat in puntointeres.categorias %}
+                        <div class="label label-success">{{ cat.nombre }}</div>
+                    {% endfor %}
+                </div>
+
+                <div class="links-puntos-interes">
+                    {{ puntointeres.localidad.nombre }}
+                </div>
+
+                <div class="imagen-puntos-interes">
+                    {% for foto in puntointeres.fotos %}
+                        <img src="{{ foto.link }}" width="200"/>
+                    {% endfor %}
+                </div>
+
+                <div class="links-puntos-interes">
+                    {% for video in puntointeres.videos %}
+                        <div class="label label-info">{{ video.link }}</div>
+                    {% endfor %}
+                </div>
+
+                <div class="links-puntos-interes">
+                    {{ puntointeres.localidad.nombre }}                    
+                </div>
+            </article>
+        {% endfor %}
+
     </section>
 {% endblock %}
