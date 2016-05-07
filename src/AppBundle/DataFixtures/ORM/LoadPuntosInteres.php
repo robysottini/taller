@@ -18,10 +18,12 @@ class LoadPuntosInteres extends AbstractFixture implements OrderedFixtureInterfa
         $puntoHistorico = $this->getReference('puntoHistorico');
         $excursion = $this->getReference('excursion');
 
-        $link1Foto = new Foto();
-        $link1Foto->setLink('https://upload.wikimedia.org/wikipedia/commons/2/22/Museo_del_Fin_del_Mundo30.jpg');
-        $link2Foto = new Foto();
-        $link2Foto->setLink('http://www.notitdf.com/noticias/leer/15844-cruzada-solidaria-catamaranes-canoero-faltan-170-pasajeros-para-llegar-a-la-meta.html');
+        $linkFotoMuseo1 = new Foto();
+        $linkFotoMuseo1->setLink('https://upload.wikimedia.org/wikipedia/commons/2/22/Museo_del_Fin_del_Mundo30.jpg');
+        $linkFotoMuseo2 = new Foto();
+        $linkFotoMuseo2->setLink('http://farm3.static.flickr.com/2434/3578067868_6503ba528e_b.jpg');
+        $linkFotoCatamaran = new Foto();
+        $linkFotoCatamaran->setLink('http://www.notitdf.com/media/noticias/ampl_cruzada-solidaria-catamaranes-canoero-faltan-170-pasajeros-para-llegar-a-la-meta_15844.jpg');
 
         $link1Video = new Video();
         $link1Video->setLink('link-video-1');
@@ -42,8 +44,8 @@ class LoadPuntosInteres extends AbstractFixture implements OrderedFixtureInterfa
         $punto1->setLocalidad($ushuaia);
         $punto1->addCategorias($museo);
         $punto1->addCategorias($puntoHistorico);
-        $punto1->addFoto($link1Foto);
-        $punto1->addFoto($link2Foto);
+        $punto1->addFoto($linkFotoMuseo1);
+        $punto1->addFoto($linkFotoMuseo2);
         $punto1->addVideo($link2Video);
         $punto1->addPrecio($precio);
 
@@ -56,6 +58,7 @@ class LoadPuntosInteres extends AbstractFixture implements OrderedFixtureInterfa
         $punto2->setDireccion('Avenida Maipú 300');
         $punto2->setLocalidad($ushuaia);
         $punto2->addCategorias($excursion);
+        $punto2->addFoto($linkFotoCatamaran);
         $punto2->addVideo($link1Video);
 
         $manager->persist($punto1);
