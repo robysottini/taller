@@ -52,6 +52,7 @@
         /*background-position: 50% 50%; /* image centered on screen */
         color: black;
         min-height: 600px;
+        padding-top: 40px; /* Ariel. Añadí esta línea. Modificala a tu gusto. */
     }
 
     .main-content-area .barra-lateral {          
