@@ -1,0 +1,13 @@
+{% extends '::base.html.twig' %}
+
+{% block title %} Filtro puntos de interés {% endblock %}
+
+{% block body %}
+
+	{{ form(form) }}
+
+	 {% for p in puntosInteres %}
+        {{ p.nombre }}
+    {% endfor %}
+
+{% endblock %}
