@@ -9,10 +9,19 @@ use AppBundle\Entity\Foto;
 use AppBundle\Entity\Video;
 use AppBundle\Entity\Precio;
 
+/**
+ * Fixture para puntos de interés.
+ */
 class LoadPuntosInteres extends AbstractFixture implements OrderedFixtureInterface
 {
+    /**
+     * Carga los datos del fixture.
+     * @param ObjectManager $manager
+     */
     public function load(ObjectManager $manager)
     {
+        // Acceso a los objetos 'ushuaia', 'museo', 'puntoHistorico' y
+        // 'excursión'.
         $ushuaia = $this->getReference('ushuaia');
         $museo = $this->getReference('museo');
         $puntoHistorico = $this->getReference('puntoHistorico');
@@ -66,6 +75,11 @@ class LoadPuntosInteres extends AbstractFixture implements OrderedFixtureInterfa
         $manager->flush();
     }
     
+    /**
+     * Obtiene el orden en que se carga este fixture.
+     * Cuanto menor sea el número, más pronto se cargará el fixtures.
+     * @return integer.
+     */
     public function getOrder()
     {
         return 3;

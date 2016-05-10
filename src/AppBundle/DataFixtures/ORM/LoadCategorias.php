@@ -7,10 +7,14 @@ use Doctrine\Common\Persistence\ObjectManager;
 use AppBundle\Entity\Categoria;
 
 /**
-* 
-*/
+ * Fixture para categorías.
+ */
 class LoadCategorias extends AbstractFixture implements OrderedFixtureInterface 
 {
+    /**
+     * Carga los datos del fixture.
+     * @param ObjectManager $manager
+     */
     public function load(ObjectManager $manager)
     {
         $museo = new Categoria();
@@ -24,11 +28,19 @@ class LoadCategorias extends AbstractFixture implements OrderedFixtureInterface
         $manager->persist($excursion);
         $manager->flush();
 
+        // Los objetos $museo, $puntohistorico y $excursión pueden ser 
+        // referenciados por otros fixtures que tengan un orden más alto, vía
+        // 'ushuaia', 'riogrande' y 'excursion'.
         $this->addReference('museo', $museo);
         $this->addReference('puntoHistorico', $puntoHistorico);
         $this->addReference('excursion', $excursion);
     }
 
+    /**
+     * Obtiene el orden en que se carga este fixture.
+     * Cuanto menor sea el número, más pronto se cargará el fixtures.
+     * @return integer.
+     */
     public function getOrder()
     {
         return 2;
