@@ -64,9 +64,7 @@ class PuntosInteresController extends Controller
                             $qb->expr()->like('p.descripcion','?1')
                             )
                         )
-                        ->where($qb->expr()->eq('p.categoria','?2'))
-               ->setParameter(1,'%' . $criteria['nombre'] . '%')    
-               ->setParameter(2,$criteria['categoria']);
+                ->setParameter(1,'%' . $criteria['nombre'] . '%');
             $puntosInteres = $qb->getQuery()->getResult();
         }else {
             $puntosInteres = null;

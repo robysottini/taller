@@ -7,6 +7,19 @@
     <section class="row-fluid">
         <h1>Puntos de interés</h1>
 
+        <div class="media">
+          <div class="media-left">
+            <a href="#">
+                {{ {puntointeres.fotos}|first }}
+              <img class="media-object" src="" alt="...">
+            </a>
+          </div>
+          <div class="media-body">
+            <h4 class="media-heading">Media heading</h4>
+            ...
+          </div>
+        </div>
+
         {% for puntointeres in puntosinteres %}
             <article class="articulo-punto-interes well">
                 <div class="nombre">
