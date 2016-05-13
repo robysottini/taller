@@ -4,10 +4,60 @@
 
 {% block body %}
 
-    {{ form(form) }}
+	{{ form_start(form, {'attr':{'class':'content-fluid'}}) }}
 
-    {% for p in puntosInteres %}
-        {{ p.nombre }}
-    {% endfor %}
+	    {{ form_errors(form) }}
+		
+		<div class="form-group">
+			<div class="col-md-10">
+			    {{ form_widget(form.nombre, {
+					'attr': {'class': 'form-control input-lg'}
+		        	})
+			     }}
+			</div>
 
+		    {{ form_widget(form.Filtrar, {
+		        'label':' Buscar',
+		    	'attr': {'class': 'col-md-2 btn btn-primary btn-lg glyphicon glyphicon-search'}
+		    	}) 
+		    }}
+		        
+		</div>
+		<br/><br/>
+        
+        <style type="text/css">
+	        .checkbox-form{float: left;}
+    	</style>
+        <div style="margin-top: 15px">
+		    {% for c in form.categoria %}
+				<div class="col-md-3">
+					{{ form_row(c, {
+						'attr': {'class': 'checkbox-form'}
+			        	}) 
+					}}
+				</div>
+			{% endfor %}
+        </div>
+
+	{{ form_end(form) }}
+
+	<dir class="col-md-12">
+		{% if puntosInteres is empty %}
+			 
+			  <div class="alert alert-warning text-center">
+			  	<strong>No se encontraron resultados</strong>
+			  </div>  
+
+		{% else %}
+
+			  <div class="alert alert-info text-center">
+			  	Se encontraron <strong>{{ puntosInteres|length }}</strong> resultados 
+			  </div>  
+
+		    {% for p in puntosInteres %}
+		        <a href='{{ p.nombre|url_encode }}'>{{ p.nombre }} </a> <br/>
+		    {% endfor %}
+
+		{% endif %}
+	</dir>
 {% endblock %}
