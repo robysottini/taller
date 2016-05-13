@@ -3,9 +3,7 @@
 ### Symfony ###
 # Cache and logs (Symfony2)
 /app/cache/*
-/app/logs/*
-!app/cache/.gitkeep
-!app/logs/.gitkeep
+!/app/cache/.gitkeep
 
 # Email spool folder
 /app/spool/*

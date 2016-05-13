@@ -9376,3 +9376,7 @@
 [2016-05-07 18:20:53] doctrine.DEBUG: SELECT p0_.id AS id_0, p0_.nombre AS nombre_1, p0_.descripcion AS descripcion_2, p0_.latitud AS latitud_3, p0_.longitud AS longitud_4, p0_.link_interes AS link_interes_5, p0_.direccion AS direccion_6, p0_.localidad_id AS localidad_id_7 FROM puntos_interes p0_ WHERE p0_.nombre LIKE ? ["%useo%"] []
 [2016-05-07 18:20:53] request.INFO: Matched route "_wdt". {"route_parameters":{"_controller":"web_profiler.controller.profiler:toolbarAction","token":"22e590","_route":"_wdt"},"request_uri":"http://localhost:8080/puntos/web/app_dev.php/_wdt/22e590"} []
 [2016-05-07 18:21:58] request.INFO: Matched route "_wdt". {"route_parameters":{"_controller":"web_profiler.controller.profiler:toolbarAction","token":"f78b72","_route":"_wdt"},"request_uri":"http://localhost:8080/puntos/web/app_dev.php/_wdt/f78b72"} []
+[2016-05-13 20:33:02] request.INFO: Matched route "categorias_index". {"route_parameters":{"_controller":"AppBundle\\Controller\\CategoriasController::indexAction","_route":"categorias_index"},"request_uri":"http://localhost:8080/puntos/web/app_dev.php/categorias"} []
+[2016-05-13 20:33:02] security.INFO: Populated the TokenStorage with an anonymous Token. [] []
+[2016-05-13 20:33:03] doctrine.DEBUG: SELECT t0.id AS id_1, t0.nombre AS nombre_2 FROM categorias t0 [] []
+[2016-05-13 20:33:04] request.INFO: Matched route "_wdt". {"route_parameters":{"_controller":"web_profiler.controller.profiler:toolbarAction","token":"52f840","_route":"_wdt"},"request_uri":"http://localhost:8080/puntos/web/app_dev.php/_wdt/52f840"} []
