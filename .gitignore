@@ -1,9 +1,10 @@
 # Created by https://www.gitignore.io/api/symfony,sublimetext
 
-### Symfony ###
 # Cache and logs (Symfony2)
 /app/cache/*
-!/app/cache/.gitkeep
+/app/logs/*
+!app/cache/.gitkeep
+!app/logs/.gitkeep
 
 # Email spool folder
 /app/spool/*
