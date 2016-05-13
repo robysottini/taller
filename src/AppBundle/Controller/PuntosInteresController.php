@@ -71,8 +71,10 @@ class PuntosInteresController extends Controller
 
 
     */
+
         return $this->render(
             'AppBundle:puntosinteres:filtro.html.twig', 
-            array('puntosInteres' => $puntosInteres, 'form' => $form->createView(),));
+            array('puntosInteres' => $puntosInteres, 'form' => $form->createView(),)
+            );
     }
 }
