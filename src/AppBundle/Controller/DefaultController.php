@@ -23,7 +23,7 @@ class DefaultController extends Controller
     public function indexAdminAction(Request $request)
     {
         // replace this example code with whatever you need
-        return $this->render('inicio.html.twig');
+        return $this->render('inicio_administrador.html.twig');
     }
 
 }

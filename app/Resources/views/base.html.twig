@@ -29,15 +29,7 @@
 
         <div class="collapse navbar-collapse" id="nav-bar-principal">
             <ul class="nav navbar-nav visible-xs-block">
-                <li>
-                    <a href="{{ url('puntosinteres_index') }}">Puntos de interés</a>
-                </li>
-                <li>
-                    <a href="{{ url('localidades_index') }}">Localidades</a>
-                </li>
-                <li>
-                    <a href="{{ url('categorias_index') }}">Categorías</a>
-                </li>
+                {% include 'menu.html.twig' %}
             </ul>
 
 
@@ -67,15 +59,9 @@
 
             <div class="barra-lateral col-sm-4 col-md-3 lg-md-3 visible-sm-block visible-md-block visible-lg-block hidden-xs">
                 <img class="thumbnail imagen-miniatura" src="https://conocerushuaia.files.wordpress.com/2016/02/abismo01.jpg?w=500">
-                <a href="{{ url('puntosinteres_index') }}">
-                    <h4>Puntos de interés</h4>
-                </a>
-                <a href="{{ url('localidades_index') }}">
-                    <h4>Localidades</h4>
-                </a>
-                <a href="{{ url('categorias_index') }}">
-                    <h4>Categorías</h4>
-                </a>
+                <ul>
+                    {% include 'menu.html.twig' %}
+                </ul>
             </div> <!--fin barra-lateral-->
 
             <div class="main-content-area col-sm-8 col-md-9 lg-md-9">

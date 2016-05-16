@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class LocalidadesController extends Controller
 {
     /**
-     * @Route("/localidades", name="localidades_index")
+     * @Route("/admin/localidades", name="localidades_index")
      */
     public function indexAction()
     {
