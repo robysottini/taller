@@ -19,10 +19,12 @@ class LoadCategorias extends AbstractFixture implements OrderedFixtureInterface
     {
         $museo = new Categoria();
         $museo->setNombre('Museos');
+
         $puntoHistorico = new Categoria();
         $puntoHistorico->setNombre('Puntos históricos');
+        
         $excursion = new Categoria();
-        $excursion->setNombre('Puntos históricos');
+        $excursion->setNombre('Excursiones');
 
         $manager->persist($museo);
         $manager->persist($excursion);
