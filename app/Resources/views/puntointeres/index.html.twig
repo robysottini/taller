@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Puntos de interés</h1>
+
+    <table class="table table-stripped table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Latitud</th>
+                <th>Longitud</th>
+                <th>Link de interés</th>
+                <th>Dirección</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for puntoIntere in puntoInteres %}
+            <tr>
+                <td>{{ puntoIntere.nombre }}</td>
+                <td>{{ puntoIntere.latitud }}</td>
+                <td>{{ puntoIntere.longitud }}</td>
+                <td>{{ puntoIntere.linkinteres }}</td>
+                <td>{{ puntoIntere.direccion }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a class="btn btn-default" href="{{ path('puntointeres_edit', { 'id': puntoIntere.id }) }}">Editar</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('puntointeres_new') }}">Crear nueva entrada</a>
+        </li>
+    </ul>
+{% endblock %}

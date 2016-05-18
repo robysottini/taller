@@ -1,6 +1,8 @@
 <?php
 namespace AppBundle\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -17,6 +19,7 @@ class Localidad
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank()
      */
     protected $nombre;
 
@@ -48,6 +51,11 @@ class Localidad
     public function setCodigoPostal($aCodigoPostal)
     {
         $this->codigo_postal = $aCodigoPostal;
+    }
+
+    public function __toString()
+    {
+        return $this->nombre;
     }
 
 }

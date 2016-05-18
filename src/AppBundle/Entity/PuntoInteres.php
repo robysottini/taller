@@ -1,6 +1,7 @@
 <?php
 namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -18,6 +19,7 @@ class PuntoInteres
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank()
      */
     protected $nombre;
 
@@ -38,6 +40,7 @@ class PuntoInteres
 
     /**
      * @ORM\Column(type="string", length=256)
+     * @Assert\Url()
      */
     protected $link_interes;
 

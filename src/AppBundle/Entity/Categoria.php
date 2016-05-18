@@ -1,6 +1,8 @@
 <?php
 namespace AppBundle\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
@@ -17,6 +19,7 @@ class Categoria
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank()
      */
     protected $nombre;
 
@@ -33,6 +36,11 @@ class Categoria
     public function setNombre($aNombre)
     {
         $this->nombre = $aNombre;
+    }
+
+    public function __toString()
+    {
+        return $this->nombre;
     }
 
 }
