@@ -1,0 +1,43 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{#
+{% trans_default_domain 'FOSUserBundle' %}
+#}
+{% block fos_user_content %}
+
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <script src="{{ asset('assets/js/jquery-2.2.3.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+
+    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-md-offset-4">
+            <h1 class="text-center login-title">Iniciar sesión</h1>
+        	{% if error %}
+			    <div class="alert alert-danger text-center form-error-login">
+		    		<strong>{{ error.messageKey|trans(error.messageData, 'security') }}</strong>
+			    </div>
+			{% endif %}
+            <div class="account-wall">
+                <img class="profile-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRQsABFfOetLqk2CL_X2SAWZAqtc4qUq_BtG8Z0dh_kHa3GXCJv0g"
+                    alt="">
+                <form class="form-signin" action="{{ path("fos_user_security_check") }}" method="post">
+                	<input type="text" id="username" name="_username" class="form-control" placeholder="Usuario" required autofocus>
+                	<input type="password" id="password" name="_password" class="form-control" placeholder="Contraseña" required>
+                	<button class="btn btn-lg btn-primary btn-block" type="submit">
+                	    Entrar</button>
+                	<label class="checkbox pull-left">
+                	    <input type="checkbox" value="remember-me">
+                	    Recordar mis datos
+                	</label>
+                	<a href="http://www.symfony.com" class="pull-right need-help" target="_blanck"> ¿Necesitas ayuda? </a><span class="clearfix"></span>
+                </form>
+            </div>
+            <a href="#" class="text-center new-account">Crear una cuenta </a>
+        </div>
+    </div>
+</div>
+{% endblock fos_user_content %}
+
