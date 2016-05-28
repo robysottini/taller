@@ -31,23 +31,18 @@
             <ul class="nav navbar-nav visible-xs-block">
                 {% include 'menu.html.twig' %}
             </ul>
-
-
-
-
-<!--
             <div class="buscador">
 
                 <form class="navbar-form" role="search">
-                    <div class="form-group">
-                        <input class="form-control" placeholder="Buscar..."
-                        type="text">
-                    </div>
-                    <button class="btn btn-primary" type="submit"><span aria-hidden="true" class="glyphicon glyphicon-search"></span>
-                    </button>
-                    <a href="#" class="btn btn-success boton-login">Login</a>
+                {% if not is_granted('ROLE_SUPER_ADMIN') %}
+                    <a href="{{ url('puntointeres_index') }}" class="btn btn-success boton-login glyphicon glyphicon-lock">  Login</a>
+                {% endif %}
+
+                {% if is_granted('ROLE_SUPER_ADMIN') %}
+                    <a href="{{ path('fos_user_security_logout') }}" class="btn btn-success boton-login">Logout</a>
+                {% endif %}
                 </form>
--->
+
             </div> <!--fin .buscador -->
 
         </div>
@@ -59,15 +54,11 @@
 
             <div class="barra-lateral col-sm-4 col-md-3 lg-md-3 visible-sm-block visible-md-block visible-lg-block hidden-xs">
                 <img class="thumbnail imagen-miniatura" src="https://conocerushuaia.files.wordpress.com/2016/02/abismo01.jpg?w=500">
-                <ul>
-                    {% include 'menu.html.twig' %}
-                </ul>
+                {% include 'menu.html.twig' %}
             </div> <!--fin barra-lateral-->
 
             <div class="main-content-area col-sm-8 col-md-9 lg-md-9">
-
                 {% block body %}{% endblock %}
-
             </div> <!--fin main-content-area-->
         </div> <!--fin row-fluid-->
     </div> <!--fin container-->
