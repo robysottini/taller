@@ -21,8 +21,19 @@ class PuntoInteresType extends AbstractType
             ->add('longitud')
             ->add('link_interes')
             ->add('direccion')
-            ->add('localidad')
-            ->add('categorias')
+            ->add('localidad', 'entity', array(
+                'class' => 'AppBundle\Entity\Localidad', 
+                'attr'   =>  array(
+                    'class'   => 'select2-combo'
+                )
+            ))
+            ->add('categorias', 'entity', array(
+                'class' => 'AppBundle\Entity\Categoria', 
+                'attr'   =>  array(
+                    'class'   => 'select2-combo',
+                    'multiple'   => 'multiple'
+                )
+            ))
             ->add('guardar', 'submit')
         ;
     }
