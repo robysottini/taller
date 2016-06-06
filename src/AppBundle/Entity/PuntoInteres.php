@@ -25,16 +25,19 @@ class PuntoInteres
 
     /**
      * @ORM\Column(type="string", length=256)
+     * @Assert\NotBlank()
      */
     protected $descripcion;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank()
      */
     protected $latitud;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank()
      */
     protected $longitud;
 
@@ -56,6 +59,7 @@ class PuntoInteres
 
     /**
      * @ORM\ManyToMany(targetEntity="Categoria", cascade={"persist"})
+     * @Assert\NotBlank()
      */
     protected $categorias;
 

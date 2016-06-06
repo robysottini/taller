@@ -40,7 +40,11 @@ class PuntoInteresType extends AbstractType
                     'multiple' => 'multiple'
                 )
             ))
-            ->add('guardar', 'submit')
+            ->add('guardar', 'submit', array(
+                'attr'  =>  array(
+                    'class' => 'btn btn-primary'
+                )
+            ))
         ;
     }
     

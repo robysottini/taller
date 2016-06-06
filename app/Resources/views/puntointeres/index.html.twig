@@ -1,7 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <!-- Crea la vista para mostrar todos los puntos de interés. -->
+    <!-- Crea la vista para mostrar todos los puntos de interés.
+    Usa la función indexAction($request) y la variable $puntosInteres del
+    archivo PuntoInteresController.php para mostrar todos los puntos de interés.
+    -->
 
     <h1>Puntos de interés</h1>
 
@@ -13,7 +16,6 @@
                 <th>Longitud</th>
                 <th>Link de interés</th>
                 <th>Dirección</th>
-                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
@@ -26,11 +28,7 @@
                 <td>{{ puntoInteres.direccion }}</td>
                 <!-- Botón Editar -->
                 <td>
-                    <ul>
-                        <li>
-                            <a class="btn btn-default" href="{{ path('puntointeres_edit', { 'id': puntoInteres.id }) }}">Editar</a>
-                        </li>
-                    </ul>
+                    <a class="btn btn-primary" href="{{ path('puntointeres_edit', { 'id': puntoInteres.id }) }}">Editar</a>    
                 </td>
             </tr>
         {% endfor %}
@@ -38,9 +36,5 @@
     </table>
 
     <!-- Botón Crear nueva entrada -->
-    <ul>
-        <li>
-            <a href="{{ path('puntointeres_new') }}">Crear nueva entrada</a>
-        </li>
-    </ul>
+    <a class="btn btn-primary" href="{{ path('puntointeres_new') }}">Crear nueva entrada</a>
 {% endblock %}
