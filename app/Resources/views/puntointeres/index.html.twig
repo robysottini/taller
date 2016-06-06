@@ -1,6 +1,8 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <!-- Crea la vista para mostrar todos los puntos de interés. -->
+
     <h1>Puntos de interés</h1>
 
     <table class="table table-stripped table-bordered table-hover">
@@ -15,17 +17,18 @@
             </tr>
         </thead>
         <tbody>
-        {% for puntoIntere in puntoInteres %}
+        {% for puntoInteres in puntosInteres %}
             <tr>
-                <td>{{ puntoIntere.nombre }}</td>
-                <td>{{ puntoIntere.latitud }}</td>
-                <td>{{ puntoIntere.longitud }}</td>
-                <td>{{ puntoIntere.linkinteres }}</td>
-                <td>{{ puntoIntere.direccion }}</td>
+                <td>{{ puntoInteres.nombre }}</td>
+                <td>{{ puntoInteres.latitud }}</td>
+                <td>{{ puntoInteres.longitud }}</td>
+                <td>{{ puntoInteres.linkinteres }}</td>
+                <td>{{ puntoInteres.direccion }}</td>
+                <!-- Botón Editar -->
                 <td>
                     <ul>
                         <li>
-                            <a class="btn btn-default" href="{{ path('puntointeres_edit', { 'id': puntoIntere.id }) }}">Editar</a>
+                            <a class="btn btn-default" href="{{ path('puntointeres_edit', { 'id': puntoInteres.id }) }}">Editar</a>
                         </li>
                     </ul>
                 </td>
@@ -34,6 +37,7 @@
         </tbody>
     </table>
 
+    <!-- Botón Crear nueva entrada -->
     <ul>
         <li>
             <a href="{{ path('puntointeres_new') }}">Crear nueva entrada</a>
