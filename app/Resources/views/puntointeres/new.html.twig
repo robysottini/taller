@@ -1,13 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <!-- Crea la vista para crear un nuevo punto de interés. Usa el archivo
+    PuntoInteresType.php para generar el formulario de alta. -->
+    
     <h1>Crear punto de interés</h1>
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
         <input type="submit" value="Crear" />
     {{ form_end(form) }}
-
 
     <ul>
         <li>

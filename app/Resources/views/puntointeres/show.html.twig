@@ -7,31 +7,31 @@
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ puntoIntere.id }}</td>
+                <td>{{ puntoInteres.id }}</td>
             </tr>
             <tr>
                 <th>Nombre</th>
-                <td>{{ puntoIntere.nombre }}</td>
+                <td>{{ puntoInteres.nombre }}</td>
             </tr>
             <tr>
                 <th>Descripcion</th>
-                <td>{{ puntoIntere.descripcion }}</td>
+                <td>{{ puntoInteres.descripcion }}</td>
             </tr>
             <tr>
                 <th>Latitud</th>
-                <td>{{ puntoIntere.latitud }}</td>
+                <td>{{ puntoInteres.latitud }}</td>
             </tr>
             <tr>
                 <th>Longitud</th>
-                <td>{{ puntoIntere.longitud }}</td>
+                <td>{{ puntoInteres.longitud }}</td>
             </tr>
             <tr>
                 <th>Link_interes</th>
-                <td>{{ puntoIntere.linkinteres }}</td>
+                <td>{{ puntoInteres.linkinteres }}</td>
             </tr>
             <tr>
                 <th>Direccion</th>
-                <td>{{ puntoIntere.direccion }}</td>
+                <td>{{ puntoInteres.direccion }}</td>
             </tr>
         </tbody>
     </table>
@@ -41,7 +41,7 @@
             <a href="{{ path('puntointeres_index') }}">Back to the list</a>
         </li>
         <li>
-            <a href="{{ path('puntointeres_edit', { 'id': puntoIntere.id }) }}">Edit</a>
+            <a href="{{ path('puntointeres_edit', { 'id': puntoInteres.id }) }}">Edit</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

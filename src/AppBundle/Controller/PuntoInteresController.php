@@ -26,10 +26,10 @@ class PuntoInteresController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $puntoInteres = $em->getRepository('AppBundle:PuntoInteres')->findAll();
+        $puntosInteres = $em->getRepository('AppBundle:PuntoInteres')->findAll();
 
         return $this->render('puntointeres/index.html.twig', array(
-            'puntoInteres' => $puntoInteres,
+            'puntosInteres' => $puntosInteres,
         ));
     }
 
@@ -41,20 +41,20 @@ class PuntoInteresController extends Controller
      */
     public function newAction(Request $request)
     {
-        $puntoIntere = new PuntoInteres();
-        $form = $this->createForm('AppBundle\Form\PuntoInteresType', $puntoIntere);
+        $puntoInteres = new PuntoInteres();
+        $form = $this->createForm('AppBundle\Form\PuntoInteresType', $puntoInteres);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($puntoIntere);
+            $em->persist($puntoInteres);
             $em->flush();
 
-            return $this->redirectToRoute('puntointeres_show', array('id' => $puntoIntere->getId()));
+            return $this->redirectToRoute('puntointeres_show', array('id' => $puntoInteres->getId()));
         }
 
         return $this->render('puntointeres/new.html.twig', array(
-            'puntoIntere' => $puntoIntere,
+            'puntoInteres' => $puntoInteres,
             'form' => $form->createView(),
         ));
     }
@@ -65,12 +65,12 @@ class PuntoInteresController extends Controller
      * @Route("/{id}", name="puntointeres_show")
      * @Method("GET")
      */
-    public function showAction(PuntoInteres $puntoIntere)
+    public function showAction(PuntoInteres $puntoInteres)
     {
-        $deleteForm = $this->createDeleteForm($puntoIntere);
+        $deleteForm = $this->createDeleteForm($puntoInteres);
 
         return $this->render('puntointeres/show.html.twig', array(
-            'puntoIntere' => $puntoIntere,
+            'puntoInteres' => $puntoInteres,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -81,22 +81,22 @@ class PuntoInteresController extends Controller
      * @Route("/{id}/edit", name="puntointeres_edit")
      * @Method({"GET", "POST"})
      */
-    public function editAction(Request $request, PuntoInteres $puntoIntere)
+    public function editAction(Request $request, PuntoInteres $puntoInteres)
     {
-        $deleteForm = $this->createDeleteForm($puntoIntere);
-        $editForm = $this->createForm('AppBundle\Form\PuntoInteresType', $puntoIntere);
+        $deleteForm = $this->createDeleteForm($puntoInteres);
+        $editForm = $this->createForm('AppBundle\Form\PuntoInteresType', $puntoInteres);
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($puntoIntere);
+            $em->persist($puntoInteres);
             $em->flush();
 
-            return $this->redirectToRoute('puntointeres_edit', array('id' => $puntoIntere->getId()));
+            return $this->redirectToRoute('puntointeres_edit', array('id' => $puntoInteres->getId()));
         }
 
         return $this->render('puntointeres/edit.html.twig', array(
-            'puntoIntere' => $puntoIntere,
+            'puntoInteres' => $puntoInteres,
             'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
@@ -108,14 +108,14 @@ class PuntoInteresController extends Controller
      * @Route("/{id}", name="puntointeres_delete")
      * @Method("DELETE")
      */
-    public function deleteAction(Request $request, PuntoInteres $puntoIntere)
+    public function deleteAction(Request $request, PuntoInteres $puntoInteres)
     {
-        $form = $this->createDeleteForm($puntoIntere);
+        $form = $this->createDeleteForm($puntoInteres);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->remove($puntoIntere);
+            $em->remove($puntoInteres);
             $em->flush();
         }
 
@@ -125,14 +125,14 @@ class PuntoInteresController extends Controller
     /**
      * Creates a form to delete a PuntoInteres entity.
      *
-     * @param PuntoInteres $puntoIntere The PuntoInteres entity
+     * @param PuntoInteres $puntoInteres The PuntoInteres entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createDeleteForm(PuntoInteres $puntoIntere)
+    private function createDeleteForm(PuntoInteres $puntoInteres)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('puntointeres_delete', array('id' => $puntoIntere->getId())))
+            ->setAction($this->generateUrl('puntointeres_delete', array('id' => $puntoInteres->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;
