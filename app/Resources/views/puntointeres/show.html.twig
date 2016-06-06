@@ -1,20 +1,20 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>PuntoInteres</h1>
+    <!-- Crea la vista para mostrar el nuevo punto de interés creado.
+    Usa la función newAction($request) y la variable $puntoInteres del
+    archivo PuntoInteresController.php para mostrar el punto de interés creado.
+    -->
+    <h1>Punto de interés. <small>El nuevo punto de interés fue creado con éxito.</small></h1>
 
     <table>
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ puntoInteres.id }}</td>
-            </tr>
             <tr>
                 <th>Nombre</th>
                 <td>{{ puntoInteres.nombre }}</td>
             </tr>
             <tr>
-                <th>Descripcion</th>
+                <th>Descripción</th>
                 <td>{{ puntoInteres.descripcion }}</td>
             </tr>
             <tr>
@@ -26,27 +26,19 @@
                 <td>{{ puntoInteres.longitud }}</td>
             </tr>
             <tr>
-                <th>Link_interes</th>
+                <th>Link de interés</th>
                 <td>{{ puntoInteres.linkinteres }}</td>
             </tr>
             <tr>
-                <th>Direccion</th>
+                <th>Dirección</th>
                 <td>{{ puntoInteres.direccion }}</td>
             </tr>
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('puntointeres_index') }}">Back to the list</a>
-        </li>
-        <li>
-            <a href="{{ path('puntointeres_edit', { 'id': puntoInteres.id }) }}">Edit</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <a class="btn btn-primary" href="{{ path('puntointeres_index') }}">Volver a la lista</a>
+    <a class="btn btn-primary" href="{{ path('puntointeres_edit', { 'id': puntoInteres.id }) }}">Editar</a>
+    {{ form_start(delete_form) }}
+        <input class="btn btn-primary" type="submit" value="Delete">
+    {{ form_end(delete_form) }}
 {% endblock %}

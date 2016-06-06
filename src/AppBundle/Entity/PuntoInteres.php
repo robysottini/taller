@@ -25,16 +25,19 @@ class PuntoInteres
 
     /**
      * @ORM\Column(type="string", length=256)
+     * @Assert\NotBlank()
      */
     protected $descripcion;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank()
      */
     protected $latitud;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank()
      */
     protected $longitud;
 
@@ -56,6 +59,7 @@ class PuntoInteres
 
     /**
      * @ORM\ManyToMany(targetEntity="Categoria", cascade={"persist"})
+     * @Assert\NotBlank()
      */
     protected $categorias;
 
@@ -152,9 +156,14 @@ class PuntoInteres
         return $this->categorias;
     }
 
-    public function addCategorias($aCategorias)
+    public function addCategoria($aCategorias)
     {
-        $this->categorias[] = $aCategorias;
+        $this->categorias->add($aCategorias);
+    }
+
+    public function removeCategoria($aCategorias)
+    {
+        $this->categorias->remove($aCategorias);
     }
 
     public function getLocalidad()

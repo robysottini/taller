@@ -1,21 +1,26 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}    
-    <!-- Crea la vista para modificar un punto de interés. -->
-    <h1>Editar punto de interés</h1>
+{% block body %}
+    <!-- Crea la vista para modificar un punto de interés.
+    Usa la función buildForm($request, $puntoInteres) del archivo
+    PuntoInteresType.php para generar el formulario de modificación.
+    Usa la función editAction($request, $puntoInteres) y la variable $edit_form
+    del archivo PuntoInteresController.php para guardar las modificaciones del
+    punto de interés. -->
+    
+    <h1>Editar un punto de interés</h1>
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
+        <input class="btn btn-primary" type="submit" value="¿Guardar?">
     {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('puntointeres_index') }}">Volver a la lista</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Borrar">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    <a class="btn btn-primary" href="{{ path('puntointeres_index') }}">Volver a la lista</a>
+    
+    {{ form_start(delete_form) }}
+        <input class="btn btn-primary" type="submit" value="Borrar">
+    {{ form_end(delete_form) }}
+
+    <!-- Botón Borrar -->
+    <a class="btn btn-primary" href="{{ path('puntointeres_delete', { 'id': puntoInteres.id }) }}">Borrar2</a>
 {% endblock %}
