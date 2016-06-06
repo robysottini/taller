@@ -156,9 +156,14 @@ class PuntoInteres
         return $this->categorias;
     }
 
-    public function addCategorias($aCategorias)
+    public function addCategoria($aCategorias)
     {
-        $this->categorias[] = $aCategorias;
+        $this->categorias->add($aCategorias);
+    }
+
+    public function removeCategoria($aCategorias)
+    {
+        $this->categorias->remove($aCategorias);
     }
 
     public function getLocalidad()
