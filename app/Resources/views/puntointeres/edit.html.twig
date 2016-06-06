@@ -8,12 +8,24 @@
     del archivo PuntoInteresController.php para guardar las modificaciones del
     punto de interés. -->
     
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+
     <h1>Editar un punto de interés</h1>
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
         <input class="btn btn-primary" type="submit" value="¿Guardar?">
     {{ form_end(edit_form) }}
+    
+    <div id="form-mapa" class="form-group">
+        <br/>
+        <div id="mapa" class="mapa-puntos-interes col-md-12">
+            <div class="alert alert-info">
+                Haga click en el mapa para seleccionar las coordenadas, o ingreselas en los correspondientes casilleros
+            </div>
+            <div id="googleMap" style="height:280px;" class="thumbnail"></div>
+        </div>
+    </div>
 
     <a class="btn btn-primary" href="{{ path('puntointeres_index') }}">Volver a la lista</a>
     
@@ -23,4 +35,45 @@
 
     <!-- Botón Borrar -->
     <a class="btn btn-primary" href="{{ path('puntointeres_delete', { 'id': puntoInteres.id }) }}">Borrar2</a>
+    
+
+    <script>
+        var marker = null;
+
+        function initialize() {
+            var lat = document.getElementById("punto_interes_latitud").value;          
+            var lng = document.getElementById("punto_interes_longitud").value;          
+            var myCenter = new google.maps.LatLng(lat, lng);
+
+          var mapProp = {
+            center: myCenter,
+            zoom: (lat != 0 ? 15 : 5),
+            mapTypeId:google.maps.MapTypeId.ROADMAP
+          };
+
+          var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+
+          marker = new google.maps.Marker({
+                position: new google.maps.LatLng(lat, lng),
+                map: map
+             });
+
+
+          google.maps.event.addListener(map, "click", function(event) {
+
+                // get lat/lon of click
+                var clickLat = event.latLng.lat();
+                var clickLon = event.latLng.lng();
+
+                // show in input box
+                document.getElementById("punto_interes_latitud").value = clickLat.toFixed(5);
+                document.getElementById("punto_interes_longitud").value = clickLon.toFixed(5);
+
+                marker.setPosition(new google.maps.LatLng(clickLat, clickLon));
+            });
+        }
+        window.onload = function () { initialize() };
+        $("#punto_interes_longitud").parent().append($("#form-mapa"))
+
+    </script>
 {% endblock %}
