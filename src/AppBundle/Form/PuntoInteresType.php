@@ -15,37 +15,61 @@ class PuntoInteresType extends AbstractType
     /**
      * Crea un formulario a partir de la entidad AppBundle\Entity\PuntoInteres
      * definida a través de la función configureOptions.
+     * 
+     * La función add() agrega campos al formulario. Tiene tres parámetros:
+     * nombre del campo, tipo (null si es una propiedad) y arreglo de opciones.
+     * Para cambiar la etiqueta de un campo, se debe pasar el nuevo nombre
+     * usando el arreglo de opciones. Ejemplo: 'label' => 'Link de interés'.
      * @param FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
+        $opcionesDescripcion = array(
+            'label' => 'Descripción'
+        );
+
+        $opcionesLinkInteres = array(
+            'label' => 'Link de interés'
+        );
+
+        $opcionesDirección = array(
+            'label' => 'Dirección'
+        );
+
+        $opcionesLocalidad = array(
+            'class' => 'AppBundle:Localidad', 
+            'attr'  =>  array(
+                'class' => 'select2-combo'
+            )
+        );
+
+        $opcionesCategorias = array(
+            'label'  => 'Categorías',
+            'class' => 'AppBundle:Categoria',
+            'attr' => array(
+                'class' => 'select2-combo'
+            ),
+            'multiple' => true,
+            'expanded' => false,
+        );
+
+        $opcionesGuardar = array(
+            'attr'  =>  array(
+                'class' => 'btn btn-primary'
+            )
+        );
+
         $builder
             ->add('nombre')
-            ->add('descripcion', 'textarea')
+            ->add('descripcion', 'textarea', $opcionesDescripcion)
             ->add('latitud')
             ->add('longitud')
-            ->add('link_interes')
-            ->add('direccion')
-            ->add('localidad', 'entity', array(
-                'class' => 'AppBundle:Localidad', 
-                'attr'  =>  array(
-                    'class' => 'select2-combo'
-                )
-            ))
-            ->add('categorias', 'entity', array(
-                'class' => 'AppBundle:Categoria',
-                'attr' => array(
-                    'class' => 'select2-combo'
-                ),
-                'multiple' => true,
-                'expanded' => false,
-            ))
-            ->add('guardar', 'submit', array(
-                'attr'  =>  array(
-                    'class' => 'btn btn-primary'
-                )
-            ))
+            ->add('link_interes', null, $opcionesLinkInteres)
+            ->add('direccion', null, $opcionesDirección)
+            ->add('localidad', 'entity', $opcionesLocalidad)
+            ->add('categorias', 'entity', $opcionesCategorias)
+            ->add('guardar', 'submit', $opcionesGuardar)
         ;
     }
     
@@ -54,8 +78,10 @@ class PuntoInteresType extends AbstractType
      */
     public function configureOptions(OptionsResolver $resolver)
     {
-        $resolver->setDefaults(array(
+        $opciones = array(
             'data_class' => 'AppBundle\Entity\PuntoInteres'
-        ));
+        );
+        
+        $resolver->setDefaults($opciones);
     }
 }
