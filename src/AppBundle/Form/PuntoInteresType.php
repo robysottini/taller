@@ -20,8 +20,8 @@ class PuntoInteresType extends AbstractType
      * nombre del campo, tipo (null si es una propiedad) y arreglo de opciones.
      * Para cambiar la etiqueta de un campo, se debe pasar el nuevo nombre
      * usando el arreglo de opciones. Ejemplo: 'label' => 'Link de interés'.
-     * Para asignar clases CSS a un campo, se pasa el elemento 'attr' por el arreglo de
-     * opciones. 
+     * Para asignar clases CSS a un campo, se pasa el elemento 'attr' por el
+     * arreglo de opciones. 
      * Ejemplo: 
      * 'attr' => array(
      *     'class' => 'select2-combo'
@@ -39,7 +39,7 @@ class PuntoInteresType extends AbstractType
             'label' => 'Link de interés'
         );
 
-        $opcionesDirección = array(
+        $opcionesDireccion = array(
             'label' => 'Dirección'
         );
 
@@ -72,7 +72,7 @@ class PuntoInteresType extends AbstractType
             ->add('latitud')
             ->add('longitud')
             ->add('link_interes', null, $opcionesLinkInteres)
-            ->add('direccion', null, $opcionesDirección)
+            ->add('direccion', null, $opcionesDireccion)
             ->add('localidad', 'entity', $opcionesLocalidad)
             ->add('categorias', 'entity', $opcionesCategorias)
             ->add('guardar', 'submit', $opcionesGuardar)

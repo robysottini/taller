@@ -12,8 +12,7 @@
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type="submit" value="Crear" />
     {{ form_end(form) }}
 
-    <a class="btn btn-primary" href="{{ path('puntointeres_index') }}">Volver a la lista</a>
+    <a href="{{ path('puntointeres_index') }}" class="btn btn-primary">Volver a la lista</a>
 {% endblock %}

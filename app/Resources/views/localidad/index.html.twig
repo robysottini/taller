@@ -1,14 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <!-- Crea la vista para mostrar todas las localidades.
+    Usa la función indexAction($request) y la variable $localidades del archivo
+    LocalidadController.php para mostrar todas las localidades. -->
+
     <h1>Localidades</h1>
 
-    <table class="table table-bordered table-hover">
+    <table class="table table-striped table-bordered table-hover">
         <thead>
             <tr>
                 <th>Nombre</th>
                 <th>Código postal</th>
-                <th>Acción</th>
             </tr>
         </thead>
         <tbody>
@@ -16,21 +19,15 @@
             <tr>
                 <td>{{ localidad.nombre }}</td>
                 <td>{{ localidad.codigopostal }}</td>
+                <!-- Botón Editar -->
                 <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('localidad_edit', { 'id': localidad.id }) }}">Editar</a>
-                        </li>
-                    </ul>
+                    <a href="{{ path('localidad_edit', { 'id': localidad.id }) }}" class="btn btn-primary">Editar</a>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a href="{{ path('localidad_new') }}">Crear nueva entrada</a>
-        </li>
-    </ul>
+    <!-- Botón Crear nueva entrada -->
+    <a href="{{ path('localidad_new') }}" class="btn btn-primary">Crear nueva entrada</a>
 {% endblock %}

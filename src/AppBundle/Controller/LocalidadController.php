@@ -58,6 +58,22 @@ class LocalidadController extends Controller
             'form' => $form->createView(),
         ));
     }
+
+    /**
+     * Finds and displays a Localidad entity.
+     *
+     * @Route("/{id}", name="localidad_show")
+     * @Method("GET")
+     */
+    public function showAction(Localidad $localidad)
+    {
+        $deleteForm = $this->createDeleteForm($localidad);
+
+        return $this->render('localidad/show.html.twig', array(
+            'localidad' => $localidad,
+            'delete_form'  => $deleteForm->createView(),
+        ));
+    }
     
     /**
      * Displays a form to edit an existing Localidad entity.

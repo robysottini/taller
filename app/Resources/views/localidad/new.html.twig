@@ -1,15 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <!-- Crea la vista para crear una nueva localidad.
+    Usa la función buildForm($request, $localidad) del archivo LocalidadType.php
+    para generar el formulario de alta.
+    Usa la función newAction($request) y la variable $form del
+    archivo LocalidadController.php para guardar la nueva localidad.
+    -->
+
     <h1>Crear localidad</h1>
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
     {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('localidad_index') }}">Volver a la lista</a>
-        </li>
-    </ul>
+    <a href="{{ path('localidad_index') }}" class="btn btn-primary">Volver a la lista</a>
 {% endblock %}

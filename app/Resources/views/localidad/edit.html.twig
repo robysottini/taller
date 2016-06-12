@@ -1,20 +1,24 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Editar localidad</h1>
+    <!-- Crea la vista para modificar una localidad.
+    Usa la función buildForm($request, $localidad) del archivo
+    LocalidadType.php para generar el formulario de modificación.
+    Usa la función editAction($request, $localidad) y la variable $edit_form del
+    archivo LocalidadController.php para guardar las modificaciones de la
+    localidad. -->
+    
+    <h1>Editar una localidad
+        <a href="{{ path('localidad_index') }}" class="btn btn-default pull-right">   
+            <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Volver a la lista
+        </a>
+    </h1>
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
     {{ form_end(edit_form) }}
 
-    <ul>
-        <li>
-            <a href="{{ path('localidad_index') }}">Volver a la lista</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Borrar">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
+    {{ form_start(delete_form) }}
+        <input type="submit" value="Borrar" class="btn btn-primary">
+    {{ form_end(delete_form) }}
 {% endblock %}

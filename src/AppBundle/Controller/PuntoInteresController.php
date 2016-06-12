@@ -71,7 +71,7 @@ class PuntoInteresController extends Controller
 
         return $this->render('puntointeres/show.html.twig', array(
             'puntoInteres' => $puntoInteres,
-            'delete_form' => $deleteForm->createView(),
+            'delete_form'  => $deleteForm->createView(),
         ));
     }
 
@@ -88,6 +88,9 @@ class PuntoInteresController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
+
+            // die(var_dump($_POST));
+
             $em = $this->getDoctrine()->getManager();
             $em->persist($puntoInteres);
             $em->flush();

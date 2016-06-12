@@ -18,6 +18,20 @@
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
+        
+        <div class="form-group">
+            <label for="inputPassword3" class="col-sm-2 control-label">Imágenes</label>
+            <div class="col-sm-10">
+                <span id="imagenes-inputs">
+                    <input name="imagenes[]" type="text" class="form-control"> <br>
+                </span>
+
+                <button type="button" class="btn btn-success" id="agregar-input-imagen">
+                    <span class="glyphicon glyphicon-plus"></span> Nueva imagen
+                </button>
+            </div>
+        </div>
+
     {{ form_end(edit_form) }}
     
     <div id="form-mapa" class="form-group">
@@ -32,8 +46,27 @@
 
     
     {{ form_start(delete_form) }}
-        <input class="btn btn-primary" type="submit" value="Borrar">
+        <input type="submit" value="Borrar" class="btn btn-primary">
     {{ form_end(delete_form) }}
+
+
+    <style type="text/css">
+        .template {
+            visibility: none;
+            display: none;
+        }
+    </style>
+
+    <div class="template" id="template-imagenes">
+        <input name="imagenes[]" type="text" class="form-control"> <br>
+    </div>
+
+    <script>
+        $("#agregar-input-imagen").on("click", function(){
+            var imgTemplate = $("#template-imagenes").children().clone();
+            $("#imagenes-inputs").append(imgTemplate);
+        });
+    </script>
 
     <script>
         var marker = null;
@@ -72,6 +105,6 @@
         }
         window.onload = function () { initialize() };
         $("#punto_interes_longitud").parent().append($("#form-mapa"))
-
     </script>
+
 {% endblock %}

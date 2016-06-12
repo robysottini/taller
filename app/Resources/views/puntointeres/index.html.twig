@@ -8,7 +8,7 @@
 
     <h1>Puntos de interés</h1>
 
-    <table class="table table-stripped table-bordered table-hover">
+    <table class="table table-striped table-bordered table-hover">
         <thead>
             <tr>
                 <th>Nombre</th>
@@ -28,7 +28,7 @@
                 <td>{{ puntoInteres.direccion }}</td>
                 <!-- Botón Editar -->
                 <td>
-                    <a class="btn btn-primary" href="{{ path('puntointeres_edit', { 'id': puntoInteres.id }) }}">Editar</a>    
+                    <a href="{{ path('puntointeres_edit', { 'id': puntoInteres.id }) }}" class="btn btn-primary">Editar</a>    
                 </td>
             </tr>
         {% endfor %}
@@ -36,5 +36,5 @@
     </table>
 
     <!-- Botón Crear nueva entrada -->
-    <a class="btn btn-primary" href="{{ path('puntointeres_new') }}">Crear nueva entrada</a>
+    <a href="{{ path('puntointeres_new') }}" class="btn btn-primary">Crear nueva entrada</a>
 {% endblock %}
