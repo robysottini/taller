@@ -19,7 +19,7 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('localidad_edit', { 'id': localidad.id }) }}">Editar</a>
+                            <a class="btn btn-primary" href="{{ path('localidad_edit', { 'id': localidad.id }) }}">Editar</a>
                         </li>
                     </ul>
                 </td>
@@ -30,7 +30,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('localidad_new') }}">Crear nueva entrada</a>
+            <a class="btn btn-primary" href="{{ path('localidad_new') }}">Crear nueva entrada</a>
         </li>
     </ul>
 {% endblock %}

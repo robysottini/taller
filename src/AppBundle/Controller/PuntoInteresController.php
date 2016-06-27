@@ -26,10 +26,10 @@ class PuntoInteresController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $puntosInteres = $em->getRepository('AppBundle:PuntoInteres')->findAll();
+        $puntoInteres = $em->getRepository('AppBundle:PuntoInteres')->findAll();
 
         return $this->render('puntointeres/index.html.twig', array(
-            'puntosInteres' => $puntosInteres,
+            'puntoInteres' => $puntoInteres,
         ));
     }
 

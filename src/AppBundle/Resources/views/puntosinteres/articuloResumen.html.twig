@@ -1,16 +1,20 @@
     <article class="well">
-        {% set foo = puntoInteres.fotos[0].link %}
+        {% set varImg = puntoInteres.fotos[0].link %}
         <div class="media">
           <div class="media-left">
             <a href="#">
-              <img class="media-object img-thumbnail" src="{{ foo }}" style="width: 150px">
+              <img class="media-object img-thumbnail" src="{{ varImg }}" style="width: 150px">
             </a>
           </div>
           <div class="media-body">
             <h4 class="media-heading">{{ puntoInteres.nombre }}</h4>
              <p>{{puntoInteres.descripcion}}</p>            
              <div class="categorias-puntos-interes">              
-                <a href="{{ path('puntosinteres_completo', { 'id': puntoInteres.id }) }}" class="btn btn-success" style="float: right"><span class="glyphicon glyphicon-ok">Ampliar</span></a>  
+                {% if is_granted('ROLE_SUPER_ADMIN') %}
+                  <a class="btn btn-primary" href="{{ path('puntointeres_edit', { 'id': puntoInteres.id }) }}" style="float: right">Editar</a>
+                {% else %}
+                  <a href="{{ path('puntosinteres_completo', { 'id': puntoInteres.id }) }}" class="btn btn-success" style="float: right"><span class="glyphicon glyphicon-ok"> Ampliar</span></a>  
+                {% endif %}
 
                 {% for cat in puntoInteres.categorias %}    
                     <div class="label label-info">{{ cat.nombre }}</div>    
