@@ -2,12 +2,14 @@
 
 namespace AppBundle\Controller;
 
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use AppBundle\Entity\Foto;
+use AppBundle\Entity\PuntoInteres;
+use AppBundle\Entity\Video;
+use AppBundle\Form\PuntoInteresType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use AppBundle\Entity\PuntoInteres;
-use AppBundle\Form\PuntoInteresType;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
  * PuntoInteres controller.
@@ -45,7 +47,8 @@ class PuntoInteresController extends Controller
         $form = $this->createForm('AppBundle\Form\PuntoInteresType', $puntoInteres);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid())
+        {
             $em = $this->getDoctrine()->getManager();
             $em->persist($puntoInteres);
             $em->flush();
@@ -88,10 +91,38 @@ class PuntoInteresController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-
-            // die(var_dump($_POST));
+            die(var_dump($_POST));
 
             $em = $this->getDoctrine()->getManager();
+
+            // Borro todas las fotos.
+            foreach ($puntoInteres->getFotos() as $foto) {
+                $em->remove($foto);
+            }
+            $em->flush();
+
+            // Agrego foto al punto de interés.
+            foreach ($request->request->get('fotos') as $fotoUrl) {
+                $foto = new Foto();
+                $foto->setLink($fotoUrl);
+
+                $puntoInteres->addFoto($foto);
+            }
+
+            // Borro todos los videos.
+            foreach ($puntoInteres->getVideos() as $video) {
+                $em->remove($video);
+            }
+            $em->flush();
+
+            // Agrego video al punto de interés.
+            foreach ($request->request->get('videos') as $videoUrl) {
+                $video = new Video();
+                $video->setLink($videoUrl);
+
+                $puntoInteres->addVideo($video);
+            }
+
             $em->persist($puntoInteres);
             $em->flush();
 
@@ -116,7 +147,8 @@ class PuntoInteresController extends Controller
         $form = $this->createDeleteForm($puntoInteres);
         $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid())
+        {
             $em = $this->getDoctrine()->getManager();
             $em->remove($puntoInteres);
             $em->flush();

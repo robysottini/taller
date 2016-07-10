@@ -181,10 +181,20 @@ class PuntoInteres
         return $this->fotos;
     }
 
+    public function setFotos($aFoto)
+    {
+        $this->fotos = $aFoto;
+    }
+
     public function addFoto(Foto $aFoto)
     {
         $this->fotos[] = $aFoto;
         $aFoto->setPuntoInteres($this);
+    }
+
+    public function removeFoto($aFotos)
+    {
+        $this->fotos->remove($aFotos);
     }
 
     public function getVideos()
@@ -192,10 +202,20 @@ class PuntoInteres
         return $this->videos;
     }
 
-    public function addVideo(Video $aVideos)
+    public function setVideos($aVideo)
     {
-        $this->videos[] = $aVideos;
-        $aVideos->setPuntoInteres($this);
+        $this->videos = $aVideo;
+    }
+
+    public function addVideo(Video $aVideo)
+    {
+        $this->videos[] = $aVideo;
+        $aVideo->setPuntoInteres($this);
+    }
+
+    public function removeVideo($aVideos)
+    {
+        $this->videos->remove($aVideos);
     }
 
     public function getPrecios()

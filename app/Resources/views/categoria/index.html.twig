@@ -1,9 +1,14 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <!-- Crea la vista para mostrar todos las categorías.
+    Usa la función indexAction($request) y la variable $categorias del archivo
+    CategoriaController.php para mostrar todas las categorias.
+    -->
+
     <h1>Categorías</h1>
 
-    <table class="table table-bordered table-hover">
+    <table class="table table-striped table-bordered table-hover">
         <thead>
             <tr>
                 <th>Nombre</th>
@@ -13,7 +18,10 @@
         <tbody>
         {% for categorium in categorias %}
             <tr>                
-                <td>{{ categorium.nombre }}</td>
+                <td>{{ categorium.nombre }}</td><!-- Botón Editar -->
+                <td>
+                    <a href="{{ path('puntointeres_edit', { 'id': puntoInteres.id }) }}" class="btn btn-primary">Editar</a>    
+                </td>
                 <td>
                     <ul>
                         <li>
