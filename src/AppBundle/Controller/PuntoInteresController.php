@@ -91,7 +91,7 @@ class PuntoInteresController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
-            die(var_dump($_POST));
+            //die(var_dump($_POST));
 
             $em = $this->getDoctrine()->getManager();
 

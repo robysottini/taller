@@ -1,172 +1,172 @@
-<style>  
+html, body {
+    background-color: #E2E2E2;
+}
 
-    html, body {
-        background-color: #E2E2E2;
-    }
+.container-taller {
+    box-shadow: 0px 0px 15px 1px #2e353d;
+    background: #2e353d;
+    padding: 40px 0px 0px 0px;
+    min-height: 600px;
+}
 
-    .container-taller {
-        box-shadow: 0px 0px 15px 1px #2e353d;
-        background: #2e353d;
-        padding: 40px 0px 0px 0px;
-        min-height: 600px;
-    }
+/*--------------------------------------------------------------
+BARRA DE NAVEGACIÓN
+--------------------------------------------------------------*/
+#nav-bar-principal {
+    padding-top:5px;
+    margin: 0px;
+}
 
-    /*--------------------------------------------------------------
-    BARRA DE NAVEGACIÓN
-    --------------------------------------------------------------*/
-    #nav-bar-principal {
-        padding-top:5px;
-        margin: 0px;
-    }
+.navbar {
+    background-color: #2e353d;
+    margin: 0px; 
+}
 
-    .navbar {
-        background-color: #2e353d;
-        margin: 0px; 
-    }
+.navbar .buscador {
+    float: right;
+}
 
-    .navbar .buscador {
-        float: right;
-    }
+.navbar-toggle .icon-bar {
+    border: solid 1px white !important;
+}
 
-    .navbar-toggle .icon-bar {
-        border: solid 1px white !important;
-    }
+a.navbar-brand {
+    color: white;
+    font-size: 26px;
+    margin-left: 2em;
+}
 
-    a.navbar-brand {
-        color: white;
-        font-size: 26px;
-        margin-left: 2em;
-    }
+/*--------------------------------------------------------------
+VISTAS COMUNES EN TODAS LAS PÁGINAS
+--------------------------------------------------------------*/
+.barra-lateral {
+    background: #2e353d;
+    color: white;
+}
 
-    /*--------------------------------------------------------------
-    VISTAS COMUNES EN TODAS LAS PÁGINAS
-    --------------------------------------------------------------*/
-    .barra-lateral {
-        background: #2e353d;
-        color: white;
-    }
+.main-content-area {
+    background: #fff;
+    /*background-image: url(http://placehold.it/1280x1024);*/
+    /*background-position: 50% 50%; /* image centered on screen */
+    color: black;
+    min-height: 600px;
+    padding-top: 40px; /* Ariel. Añadí esta línea. Modificala a tu gusto. */
+}
 
-    .main-content-area {
-        background: #fff;
-        /*background-image: url(http://placehold.it/1280x1024);*/
-        /*background-position: 50% 50%; /* image centered on screen */
-        color: black;
-        min-height: 600px;
-        padding-top: 40px; /* Ariel. Añadí esta línea. Modificala a tu gusto. */
-    }
+.main-content-area .barra-lateral {          
+}
 
-    .main-content-area .barra-lateral {          
-    }
+.footer-principal {
+}
 
-    .footer-principal {
-    }
+.footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 5px;
+}
 
-    .footer {
-        position: relative;
-        bottom: 0;
-        width: 100%;
-        background-color: black;
-        color: white;
-        padding: 5px;
-    }
+.imagen-miniatura {
+    width: 100%; 
+    margin-top: 30px
+}
 
-    .imagen-miniatura {
-        width: 100%; 
-        margin-top: 30px
-    }
+.boton-login {
+    margin-left: 20px;
+}
 
-    .boton-login {
-        margin-left: 20px;
-    }
+/*--------------------------------------------------------------
+LOGIN
+--------------------------------------------------------------*/
+.form-signin {
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
 
-    /*--------------------------------------------------------------
-    LOGIN
-    --------------------------------------------------------------*/
-    .form-signin {
-        max-width: 330px;
-        padding: 15px;
-        margin: 0 auto;
-    }
+.form-signin .form-signin-heading, .form-signin .checkbox {
+    margin-bottom: 10px;
+}
 
-    .form-signin .form-signin-heading, .form-signin .checkbox {
-        margin-bottom: 10px;
-    }
+.form-signin .checkbox {
+    font-weight: normal;
+}
+
+.form-signin .form-control {
+    position: relative;
+    font-size: 16px;
+    height: auto;
+    padding: 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.form-signin .form-control:focus {
+    z-index: 2;
+}
+
+.form-signin input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.account-wall {
+    margin-top: 20px;
+    padding: 40px 0px 20px 0px;
+    background-color: #f7f7f7;
+    -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.login-title {
+    color: #555;
+    font-size: 30px;
+    font-weight: 900;
+    display: block;
+}
+
+.profile-img {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 10px;
+    display: block;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.need-help {
+    margin-top: 10px;
+}
+
+.new-account {
+    display: block;
+    margin-top: 10px;
+}
+
+.form-error-login{
     
-    .form-signin .checkbox {
-        font-weight: normal;
-    }
-    
-    .form-signin .form-control {
-        position: relative;
-        font-size: 16px;
-        height: auto;
-        padding: 10px;
-        -webkit-box-sizing: border-box;
-        -moz-box-sizing: border-box;
-        box-sizing: border-box;
-    }
-    
-    .form-signin .form-control:focus {
-        z-index: 2;
-    }
-    
-    .form-signin input[type="text"] {
-        margin-bottom: -1px;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-    }
-    
-    .form-signin input[type="password"] {
-        margin-bottom: 10px;
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-    }
-    
-    .account-wall {
-        margin-top: 20px;
-        padding: 40px 0px 20px 0px;
-        background-color: #f7f7f7;
-        -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-        -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-    }
-    
-    .login-title {
-        color: #555;
-        font-size: 30px;
-        font-weight: 900;
-        display: block;
-    }
-    
-    .profile-img {
-        width: 96px;
-        height: 96px;
-        margin: 0 auto 10px;
-        display: block;
-        -moz-border-radius: 50%;
-        -webkit-border-radius: 50%;
-        border-radius: 50%;
-    }
-    
-    .need-help {
-        margin-top: 10px;
-    }
-    
-    .new-account {
-        display: block;
-        margin-top: 10px;
-    }
-    
-    .form-error-login{
-        
-    }
+}
 
-    /*--------------------------------------------------------------
-    AGREGAR IMÁGENES A UN PUNTO DE INTERÉS.
-    --------------------------------------------------------------*/
-    .template {
-            visibility: none;
-            display: none;
-        }
+/*--------------------------------------------------------------
+AGREGAR IMÁGENES A UN PUNTO DE INTERÉS.
+--------------------------------------------------------------*/
+.template {
+    visibility: none;
+    display: none;
+}
 
-</style>
+.table, ul {
+    list-style-type: none !important;
+}

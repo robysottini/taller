@@ -21,7 +21,7 @@
         
         <!-- Fotos -->
         <div class="form-group">
-            <label for="inputPassword3" class="col-sm-2 control-label">Imágenes</label>
+            <label for="inputPassword3" class="col-sm-2 control-label">Fotos</label>
             <div class="col-sm-10">
                 <span id="foto-inputs">
                     {% for foto in puntoInteres.getFotos() %}           
@@ -33,6 +33,17 @@
                 <button type="button" class="btn btn-success" id="agregar-input-foto">
                     <span class="glyphicon glyphicon-plus"></span> Nueva foto
                 </button>
+                <br/>
+                <br/>
+
+                <div class="template" id="template-foto">
+                    <span>
+                        <input name="fotos[]" type="text" class="form-control"> <br> 
+                        <button type="button" class="btn btn-danger borrar-foto">
+                            <span class="glyphicon glyphicon-minus"></span> Borrar foto
+                        </button>
+                    </span>
+                </div>
             </div>
         </div>
         <br/>
@@ -51,11 +62,23 @@
                 <button type="button" class="btn btn-success" id="agregar-input-video">
                     <span class="glyphicon glyphicon-plus"></span> Nuevo video
                 </button>
+                <br/>
+                <br/>
+
+                <div class="template" id="template-video">
+                    <span>
+                        <input name="videos[]" type="text" class="form-control"> <br> 
+                        <button type="button" class="btn btn-danger borrar-video">
+                            <span class="glyphicon glyphicon-minus"></span> Borrar video
+                        </button>
+                    </span>
+                </div>
             </div>
         </div>
 
     {{ form_end(edit_form) }}
     
+    <!-- Mapa -->
     <div id="form-mapa" class="form-group">
         <br/>
         <div id="mapa" class="mapa-puntos-interes col-md-12">
@@ -70,26 +93,6 @@
         <input type="submit" value="Borrar" class="btn btn-primary">
     {{ form_end(delete_form) }}
 
-    <!-- Fotos -->
-    <div class="template" id="template-foto">
-        <span>
-            <input name="fotos[]" type="text" class="form-control"> <br> 
-            <button type="button" class="btn btn-danger borrar-foto">
-                <span class="glyphicon glyphicon-plus"></span> borrar
-            </button>
-        </span>
-    </div>
-
-    <!-- Videos -->
-    <div class="template" id="template-video">
-        <span>
-            <input name="videos[]" type="text" class="form-control"> <br> 
-            <button type="button" class="btn btn-danger borrar-video">
-                <span class="glyphicon glyphicon-plus"></span> borrar
-            </button>
-        </span>
-    </div>
-
     <!-- Mapa -->
     <script>
         var marker = null;
@@ -99,21 +102,21 @@
             var lng = document.getElementById("punto_interes_longitud").value;          
             var myCenter = new google.maps.LatLng(lat, lng);
 
-          var mapProp = {
-            center: myCenter,
-            zoom: (lat != 0 ? 15 : 5),
-            mapTypeId:google.maps.MapTypeId.ROADMAP
-          };
+            var mapProp = {
+                center: myCenter,
+                zoom: (lat != 0 ? 15 : 5),
+                mapTypeId:google.maps.MapTypeId.ROADMAP
+            };
 
-          var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+            var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
 
-          marker = new google.maps.Marker({
+            marker = new google.maps.Marker({
                 position: new google.maps.LatLng(lat, lng),
                 map: map
-             });
+            });
 
 
-          google.maps.event.addListener(map, "click", function(event) {
+            google.maps.event.addListener(map, "click", function(event) {
 
                 // get lat/lon of click
                 var clickLat = event.latLng.lat();
@@ -128,14 +131,28 @@
         }
         window.onload = function () { initialize() };
         $("#punto_interes_longitud").parent().append($("#form-mapa"))
+    </script>
 
-
+    <!-- Agregar y borrar fotos -->
+    <script>
         $("#agregar-input-foto").on("click", function(){
-            var imgTemplate = $("#template-foto").children().clone();
-            $("#foto-inputs").append(imgTemplate);
+            var fotoTemplate = $("#template-foto").children().clone();
+            $("#foto-inputs").append(fotoTemplate);
         });
 
         $("body").on("click", ".borrar-foto", function(){
+            $(this).parent().remove();
+        });
+    </script>
+
+    <!-- Agregar y borrar videos -->
+    <script>
+        $("#agregar-input-video").on("click", function(){
+            var videoTemplate = $("#template-video").children().clone();
+            $("#video-inputs").append(videoTemplate);
+        });
+
+        $("body").on("click", ".borrar-video", function(){
             $(this).parent().remove();
         });
     </script>

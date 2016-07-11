@@ -8,32 +8,12 @@
 
     <h1>Puntos de interés</h1>
 
-    <table class="table table-striped table-bordered table-hover">
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Latitud</th>
-                <th>Longitud</th>
-                <th>Link de interés</th>
-                <th>Dirección</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for puntoInteres in puntosInteres %}
-            <tr>
-                <td>{{ puntoInteres.nombre }}</td>
-                <td>{{ puntoInteres.latitud }}</td>
-                <td>{{ puntoInteres.longitud }}</td>
-                <td>{{ puntoInteres.linkinteres }}</td>
-                <td>{{ puntoInteres.direccion }}</td>
-                <!-- Botón Editar -->
-                <td>
-                    <a href="{{ path('puntointeres_edit', { 'id': puntoInteres.id }) }}" class="btn btn-primary">Editar</a>    
-                </td>
-            </tr>
+    <dir class="col-md-12">
+        {% for p in puntosInteres %}
+            {% include "AppBundle:puntosinteres:articuloResumen.html.twig" with {'puntoInteres': p} %}
+
         {% endfor %}
-        </tbody>
-    </table>
+    </dir>
 
     <!-- Botón Crear nueva entrada -->
     <a href="{{ path('puntointeres_new') }}" class="btn btn-primary">Crear nueva entrada</a>
