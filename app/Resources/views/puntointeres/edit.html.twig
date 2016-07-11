@@ -24,10 +24,24 @@
             <label for="inputPassword3" class="col-sm-2 control-label">Fotos</label>
             <div class="col-sm-10">
                 <span id="foto-inputs">
-                    {% for foto in puntoInteres.getFotos() %}           
-                        <span><input name="fotos[]" type="text" class="form-control" value="{{ foto.getLink() }}"> <br></span>
+                    {% for foto in puntoInteres.getFotos() %}
+                        <span>
+                            <div class="input-group">
+                                <span class="input-group-btn">
+                                    <a href="{{ foto.getLink() }}" target="_blank" class="btn btn-default">
+                                        <span class="glyphicon glyphicon-eye-open"></span>
+                                    </a>
+                                </span>
+                                <input type="url" class="form-control" name="fotos[]" value="{{ foto.getLink() }}" required>
+                                <span class="input-group-btn">                                    
+                                    <button class="btn btn-danger" type="button">
+                                        <span class="glyphicon glyphicon-trash borrar-foto"></span>
+                                    </button>
+                                </span>
+                            </div>
+                            <br/>
+                        </span>
                     {% endfor %}
-                    <span><input name="fotos[]" type="text" class="form-control"> <br></span>
                 </span>
 
                 <button type="button" class="btn btn-success" id="agregar-input-foto">
@@ -35,15 +49,6 @@
                 </button>
                 <br/>
                 <br/>
-
-                <div class="template" id="template-foto">
-                    <span>
-                        <input name="fotos[]" type="text" class="form-control"> <br> 
-                        <button type="button" class="btn btn-danger borrar-foto">
-                            <span class="glyphicon glyphicon-minus"></span> Borrar foto
-                        </button>
-                    </span>
-                </div>
             </div>
         </div>
         <br/>
@@ -54,9 +59,23 @@
             <div class="col-sm-10">
                 <span id="video-inputs">
                     {% for video in puntoInteres.getVideos() %}           
-                        <span><input name="videos[]" type="text" class="form-control" value="{{ video.getLink() }}"> <br></span>
+                        <span>
+                            <div class="input-group">
+                                <span class="input-group-btn">
+                                    <a href="{{ video.getLink() }}" target="_blank" class="btn btn-default">
+                                        <span class="glyphicon glyphicon-eye-open"></span>
+                                    </a>
+                                </span>
+                                <input type="url" class="form-control" name="videos[]" value="{{ video.getLink() }}" required>
+                                <span class="input-group-btn">
+                                    <button class="btn btn-danger" type="button">
+                                        <span class="glyphicon glyphicon-trash borrar-video"></span>
+                                    </button>
+                                </span>
+                            </div>
+                            <br/>
+                        </span>
                     {% endfor %}
-                    <span><input name="videos[]" type="text" class="form-control"> <br></span>
                 </span>
 
                 <button type="button" class="btn btn-success" id="agregar-input-video">
@@ -64,17 +83,10 @@
                 </button>
                 <br/>
                 <br/>
-
-                <div class="template" id="template-video">
-                    <span>
-                        <input name="videos[]" type="text" class="form-control"> <br> 
-                        <button type="button" class="btn btn-danger borrar-video">
-                            <span class="glyphicon glyphicon-minus"></span> Borrar video
-                        </button>
-                    </span>
-                </div>
             </div>
         </div>
+        
+        <button type="submit" class="btn btn-primary pull-right">Guardar</button>
 
     {{ form_end(edit_form) }}
     
@@ -90,8 +102,37 @@
     </div>
 
     {{ form_start(delete_form) }}
-        <input type="submit" value="Borrar" class="btn btn-primary">
+        <button type="submit" class="btn btn-danger">Borrar punto de interés</button>
     {{ form_end(delete_form) }}
+
+
+    <div class="template" id="template-foto">
+        <span>
+            <div class="input-group">
+                <input type="url" class="form-control" name="fotos[]" required>
+                <span class="input-group-btn">
+                    <button class="btn btn-danger" type="button">
+                        <span class="glyphicon glyphicon-trash borrar-foto"></span>
+                    </button>
+                </span>
+            </div>
+            <br/>
+        </span>
+    </div>
+
+    <div class="template" id="template-video">
+        <span>
+            <div class="input-group">
+                <input type="url" class="form-control" name="videos[]" required>
+                <span class="input-group-btn">
+                    <button class="btn btn-danger borrar-video" type="button">
+                        <span class="glyphicon glyphicon-trash borrar-video"></span>
+                    </button>
+                </span>
+            </div>
+            <br/>
+        </span>
+    </div>
 
     <!-- Mapa -->
     <script>
@@ -141,7 +182,7 @@
         });
 
         $("body").on("click", ".borrar-foto", function(){
-            $(this).parent().remove();
+            $(this).parent().parent().parent().remove();
         });
     </script>
 
@@ -153,7 +194,7 @@
         });
 
         $("body").on("click", ".borrar-video", function(){
-            $(this).parent().remove();
+            $(this).parent().parent().parent().remove();
         });
     </script>
 

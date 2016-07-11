@@ -75,7 +75,6 @@ class PuntoInteresType extends AbstractType
             ->add('direccion', null, $opcionesDireccion)
             ->add('localidad', 'entity', $opcionesLocalidad)
             ->add('categorias', 'entity', $opcionesCategorias)
-            ->add('guardar', 'submit', $opcionesGuardar)
         ;
     }
     
