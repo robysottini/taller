@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <!-- Crea la vista para mostrar la nueva localidad creada.
+    Usa la función newAction($request) y la variable $localidad del archivo
+    LocalidadController.php para mostrar la localidad creada.
+    -->
+
+    <h1>Localidad. <small>La nueva localidad fue creada con éxito.</small>
+        <a href="{{ path('localidad_index') }}" class="btn btn-default pull-right">   
+            <span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Volver a la lista
+        </a>
+    </h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ localidad.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Código postal</th>
+                <td>{{ localidad.codigopostal }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="{{ path('localidad_edit', { 'id': localidad.id }) }}">Editar</a> <br><br>
+    {{ form_start(delete_form) }}
+        <input class="btn btn-primary" type="submit" value="Borrar">
+    {{ form_end(delete_form) }}
+{% endblock %}

@@ -1,0 +1,12 @@
+<h4>Navegación</h4>
+    <a class="btn btn-primary col-md-12" href="{{ url('puntosinteres_index') }}">Puntos de interés</a>
+{% if is_granted('ROLE_SUPER_ADMIN') %}
+	<br/><br/><br/><br/>
+	<h4>Controles de administración</h4>
+	<a class="btn btn-primary col-md-12" href="{{ url('puntointeres_index') }}">Puntos de interés</a>
+	<div class="col-md-12"><br/></div>
+	<a class="btn btn-primary col-md-12" href="{{ url('localidad_index') }}">Localidades</a>
+	<div class="col-md-12"><br/></div>
+    <a class="btn btn-primary col-md-12" href="{{ url('categoria_index') }}">Categorías</a>    
+
+{% endif %}
