@@ -37,7 +37,9 @@
         </tbody>
     </table>
 
-    <a class="btn btn-primary" href="{{ path('puntointeres_index') }}">Volver a la lista</a>
+    <a class="btn btn-primary" href="{{ path('puntointeres_index') }}">
+        <span class="glyphicon glyphicon-list"></span> Volver a la lista
+    </a>
     <a class="btn btn-primary" href="{{ path('puntointeres_edit', { 'id': puntoInteres.id }) }}">Editar</a>
     {{ form_start(delete_form) }}
         <input class="btn btn-primary" type="submit" value="Delete">
