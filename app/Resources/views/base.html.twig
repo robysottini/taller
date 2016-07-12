@@ -38,11 +38,11 @@
 
                 <form class="navbar-form" role="search">
                 {% if not is_granted('ROLE_SUPER_ADMIN') %}
-                    <a href="{{ url('puntointeres_index') }}" class="btn btn-success boton-login "><span class="glyphicon glyphicon-lock" ></span> Login</a>
+                    <a href="{{ url('puntointeres_index') }}" class="btn btn-success boton-login"><span class="glyphicon glyphicon-lock"></span> Login</a>
                 {% endif %}
 
                 {% if is_granted('ROLE_SUPER_ADMIN') %}
-                    <a href="{{ path('fos_user_security_logout') }}" class="btn btn-success boton-login">Logout</a>
+                    <a href="{{ path('fos_user_security_logout') }}" class="btn btn-success boton-login"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
                 {% endif %}
                 </form>
 

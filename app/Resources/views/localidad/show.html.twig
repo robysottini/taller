@@ -25,7 +25,8 @@
         </tbody>
     </table>
 
-    <a class="btn btn-primary" href="{{ path('localidad_edit', { 'id': localidad.id }) }}">Editar</a> <br><br>
+    <a class="btn btn-primary" href="{{ path('localidad_edit', { 'id': localidad.id }) }}">
+        <span class="glyphicon glyphicon-pencil"></span> Editar</a> <br><br>
     {{ form_start(delete_form) }}
         <input class="btn btn-primary" type="submit" value="Borrar">
     {{ form_end(delete_form) }}

@@ -20,6 +20,8 @@
     {{ form_end(edit_form) }}
 
     {{ form_start(delete_form) }}
-        <input type="submit" value="Borrar" class="btn btn-danger">
+        <button type="submit" class="btn btn-danger">
+            <span class="glyphicon glyphicon-trash"></span> Borrar
+        </button>
     {{ form_end(delete_form) }}
 {% endblock %}

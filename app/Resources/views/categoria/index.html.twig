@@ -7,12 +7,16 @@
     -->
 
     <h1>Categorías</h1>
-
+    
+    <a class="btn btn-success" href="{{ path('categoria_new') }}">
+        <span class="glyphicon glyphicon-plus"></span> Crear nueva entrada
+    </a>
+    <br/>
+    <br/>
+    
     <table class="table table-striped table-bordered table-hover">
         <thead>
-            <tr>
                 <th>Nombre</th>
-                <th>Acción</th>
             </tr>
         </thead>
         <tbody>
@@ -20,23 +24,13 @@
             <tr>                
                 <td>{{ categorium.nombre }}</td><!-- Botón Editar -->
                 <td>
-                    <a href="{{ path('puntointeres_edit', { 'id': puntoInteres.id }) }}" class="btn btn-primary">Editar</a>    
-                </td>
-                <td>
-                    <ul>
-                        <li>
-                            <a class="btn btn-primary" href="{{ path('categoria_edit', { 'id': categorium.id }) }}">Editar</a>
-                        </li>
-                    </ul>
+                    <a href="{{ path('puntointeres_edit', { 'id': categorium.id }) }}" class="btn btn-primary">
+                        <span class="glyphicon glyphicon-pencil"></span> Editar
+                    </a>    
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <ul>
-        <li>
-            <a class="btn btn-primary" href="{{ path('categoria_new') }}">Crear nueva entrada</a>
-        </li>
-    </ul>
 {% endblock %}

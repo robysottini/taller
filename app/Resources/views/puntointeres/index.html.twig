@@ -8,13 +8,17 @@
 
     <h1>Puntos de interés</h1>
 
+    <!-- Botón Crear nueva entrada -->
+    <a href="{{ path('puntointeres_new') }}" class="btn btn-success">
+        <span class="glyphicon glyphicon-plus"></span> Crear nueva entrada
+    </a>
+    <br/>
+    <br/>
+    
     <dir class="col-md-12">
         {% for p in puntosInteres %}
             {% include "AppBundle:puntosinteres:articuloResumen.html.twig" with {'puntoInteres': p} %}
-
         {% endfor %}
     </dir>
 
-    <!-- Botón Crear nueva entrada -->
-    <a href="{{ path('puntointeres_new') }}" class="btn btn-primary">Crear nueva entrada</a>
 {% endblock %}
