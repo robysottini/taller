@@ -9,14 +9,18 @@
     localidad. -->
     
     <h1>Editar una localidad
-
-        <a href="{{ path('localidad_index') }}" class="btn btn-default pull-right">   
+        <a href="{{ path('localidad_index') }}" class="btn btn-primary pull-right">   
             <span class="glyphicon glyphicon-list"></span> Volver a la lista
         </a>
     </h1>
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
+
+        <button type="submit" class="btn btn-primary pull-right">
+            <span class="glyphicon glyphicon-ok"></span> Guardar
+        </button>
+        
     {{ form_end(edit_form) }}
 
     {{ form_start(delete_form) }}

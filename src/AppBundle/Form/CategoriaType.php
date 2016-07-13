@@ -27,15 +27,8 @@ class CategoriaType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $opcionesGuardar = array(
-            'attr'  =>  array(
-                'class' => 'btn btn-primary'
-            )
-        );
-
         $builder
             ->add('nombre')
-            ->add('guardar', 'submit', $opcionesGuardar)
         ;
     }
     

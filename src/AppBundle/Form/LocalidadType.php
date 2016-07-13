@@ -31,16 +31,9 @@ class LocalidadType extends AbstractType
             'label' => 'Código postal'
         );
 
-        $opcionesGuardar = array(
-            'attr'  =>  array(
-                'class' => 'btn btn-primary'
-            )
-        );
-
         $builder
             ->add('nombre')
             ->add('codigo_postal', null, $opcionesCodigoPostal)
-            ->add('guardar', 'submit', $opcionesGuardar)
         ;
     }
     

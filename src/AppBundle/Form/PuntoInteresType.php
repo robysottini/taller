@@ -60,12 +60,6 @@ class PuntoInteresType extends AbstractType
             'expanded' => false,
         );
 
-        $opcionesGuardar = array(
-            'attr'  =>  array(
-                'class' => 'btn btn-primary'
-            )
-        );
-
         $builder
             ->add('nombre')
             ->add('descripcion', 'textarea', $opcionesDescripcion)

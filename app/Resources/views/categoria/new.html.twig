@@ -1,15 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Crear categoría</h1>
+    <h1>Crear categoría
+        <a href="{{ path('categoria_index') }}" class="btn btn-primary pull-right">
+            <span class="glyphicon glyphicon-list"></span> Volver a la lista
+        </a>
+    </h1>
 
     {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type="submit" value="Crear" />
+        
+        <button type="submit" class="btn btn-primary pull-right">
+            <span class="glyphicon glyphicon-ok"></span> Guardar
+        </button>
     {{ form_end(form) }}
-
-    <a class="btn btn-primary" href="{{ path('categoria_index') }}">
-        <span class="glyphicon glyphicon-list"></span> Volver a la lista
-    </a>
 
 {% endblock %}
