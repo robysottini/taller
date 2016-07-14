@@ -16,16 +16,14 @@
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-
         <button type="submit" class="btn btn-primary pull-right">
             <span class="glyphicon glyphicon-ok"></span> Guardar
         </button>
-        
     {{ form_end(edit_form) }}
 
     {{ form_start(delete_form) }}
         <button type="submit" class="btn btn-danger">
-            <span class="glyphicon glyphicon-trash"></span> Borrar
+            <span class="glyphicon glyphicon-trash"></span> Borrar localidad
         </button>
     {{ form_end(delete_form) }}
 {% endblock %}
