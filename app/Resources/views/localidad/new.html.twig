@@ -8,11 +8,17 @@
     archivo LocalidadController.php para guardar la nueva localidad.
     -->
 
-    <h1>Crear localidad
-        <a href="{{ path('localidad_index') }}" class="btn btn-primary pull-right">
-            <span class="glyphicon glyphicon-list"></span> Volver a la lista
-        </a>
-    </h1>
+    <div class="row">
+        <div class="col-md-10">
+            <h1>Crear localidad</h1>
+        </div>
+        <div class="col-md-2">
+            <a href="{{ path('localidad_index') }}" class="btn btn-primary pull-right">
+                <span class="glyphicon glyphicon-list"></span> Volver a la lista
+            </a>
+        </div>       
+    </div>
+
 
     {{ form_start(form) }}
         {{ form_widget(form) }}

@@ -11,11 +11,13 @@
             <p>{{puntoInteres.descripcion}}</p>            
             <div class="categorias-puntos-interes">              
                 {% if is_granted('ROLE_SUPER_ADMIN') %}
-                    <a class="btn btn-primary" href="{{ path('puntointeres_edit', { 'id': puntoInteres.id }) }}" style="float: right">
+                    <a href="{{ path('puntointeres_edit', { 'id': puntoInteres.id }) }}" class="btn btn-primary" style="float: right">
                         <span class="glyphicon glyphicon-pencil"></span> Editar
                     </a>
                     {% else %}
-                    <a href="{{ path('puntosinteres_completo', { 'id': puntoInteres.id }) }}" class="btn btn-success" style="float: right"><span class="glyphicon glyphicon-ok"> Ampliar</span></a>  
+                    <a href="{{ path('puntosinteres_completo', { 'id': puntoInteres.id }) }}" class="btn btn-success" style="float: right">
+                        <span class="glyphicon glyphicon-ok"> Ampliar</span>
+                    </a>  
                 {% endif %}
 
                 {% for cat in puntoInteres.categorias %}    
