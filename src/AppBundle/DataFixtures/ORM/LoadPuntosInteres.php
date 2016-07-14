@@ -51,8 +51,8 @@ class LoadPuntosInteres extends AbstractFixture implements OrderedFixtureInterfa
         $punto1->setLinkInteres('www.museofindelmundo.com.ar');
         $punto1->setDireccion('Avenida Maipú 173');
         $punto1->setLocalidad($ushuaia);
-        $punto1->addCategorias($museo);
-        $punto1->addCategorias($puntoHistorico);
+        $punto1->addCategoria($museo);
+        $punto1->addCategoria($puntoHistorico);
         $punto1->addFoto($linkFotoMuseo1);
         $punto1->addFoto($linkFotoMuseo2);
         $punto1->addVideo($link2Video);
@@ -66,7 +66,7 @@ class LoadPuntosInteres extends AbstractFixture implements OrderedFixtureInterfa
         $punto2->setLinkInteres('www.catamaranescanoero.com.ar');
         $punto2->setDireccion('Avenida Maipú 300');
         $punto2->setLocalidad($ushuaia);
-        $punto2->addCategorias($excursion);
+        $punto2->addCategoria($excursion);
         $punto2->addFoto($linkFotoCatamaran);
         $punto2->addVideo($link1Video);
 

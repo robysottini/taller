@@ -6,7 +6,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="categorias")
+ * @ORM\Table(name="categoria")
  */
 class Categoria
 {
@@ -36,6 +36,11 @@ class Categoria
     public function setNombre($aNombre)
     {
         $this->nombre = $aNombre;
+    }
+
+    public function setPuntoInteres(PuntoInteres $puntoInteres)
+    {
+        $this->puntoInteres = $puntoInteres;
     }
 
     public function __toString()

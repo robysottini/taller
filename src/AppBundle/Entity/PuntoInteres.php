@@ -55,13 +55,13 @@ class PuntoInteres
     /**
      * @ORM\ManyToOne(targetEntity="Localidad")
      */
-    protected $localidad;
+    protected $localidad;   
 
     /**
      * @ORM\ManyToMany(targetEntity="Categoria", cascade={"persist"})
      * @Assert\NotBlank()
      */
-    protected $categorias;
+    protected $categoria;
 
     /**
      * @ORM\OneToMany(targetEntity="Foto", cascade={"persist"}, mappedBy="puntoInteres")
@@ -80,7 +80,7 @@ class PuntoInteres
 
     public function __contruct()
     {
-        $this->categorias = new ArrayCollection();
+        $this->categoria = new ArrayCollection();
         $this->fotos = new ArrayCollection();
         $this->videos = new ArrayCollection();
         $this->precio = new ArrayCollection();
@@ -151,19 +151,20 @@ class PuntoInteres
         $this->direccion = $aDireccion;
     }
 
-    public function getCategorias()
+    public function getCategoria()
     {
-        return $this->categorias;
+        return $this->categoria;
+    }
+        
+    public function addCategoria($aCategoria)
+    {
+        $this->categoria[] = ($aCategoria);
+        $aCategoria->setPuntoInteres($this);
     }
 
-    public function addCategoria($aCategorias)
+    public function removeCategoria($aCategoria)
     {
-        $this->categorias->add($aCategorias);
-    }
-
-    public function removeCategoria($aCategorias)
-    {
-        $this->categorias->remove($aCategorias);
+        $this->categoria->remove($aCategoria);
     }
 
     public function getLocalidad()
