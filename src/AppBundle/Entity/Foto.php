@@ -17,11 +17,13 @@ class Foto
 
     /**
      * @ORM\Column(type="string", length=256)
+     * @Assert\NotBlank()
      */
     protected $link_foto;
 
     /**
     * @ORM\ManyToOne(targetEntity="PuntoInteres", inversedBy="fotos")
+    * @Assert\NotBlank()
     */
     protected $puntoInteres;
 

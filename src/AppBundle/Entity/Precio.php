@@ -17,16 +17,19 @@ class Precio
     protected $id;
     /**
     * @ORM\ManyToOne(targetEntity="PuntoInteres", inversedBy="precios")
+    * @Assert\NotBlank()
     */
     protected $puntoInteres;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank()
      */
     protected $tipo;
 
     /**
      * @ORM\Column(type="float", scale=2)
+     * @Assert\NotBlank()
      */
     protected $valor;
 
