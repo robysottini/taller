@@ -8,11 +8,16 @@
     archivo CategoriaController.php para guardar las modificaciones de la
     categoria. -->
 
-    <h1>Editar una categoría
-        <a href="{{ path('categoria_index') }}" class="btn btn-primary pull-right">
-            <span class="glyphicon glyphicon-list"></span> Volver a la lista
-        </a>
-    </h1>
+    <div class="row">
+        <div class="col-md-10">
+            <h1>Editar una categoría</h1>
+        </div>
+        <div class="col-md-2">
+            <a href="{{ path('categoria_index') }}" class="btn btn-primary pull-right">   
+                <span class="glyphicon glyphicon-list"></span> Volver a la lista
+            </a>
+        </div>
+    </div>
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
