@@ -44,6 +44,7 @@ class ApiController extends Controller
 
         $response = new JsonResponse();
         $response->setData($respuesta);
+        $response->headers->set('Access-Control-Allow-Origin','*');
         return $response;
     }
 
@@ -69,6 +70,7 @@ class ApiController extends Controller
             );
         $response = new JsonResponse();
         $response->setData($res);
+        $response->headers->set('Access-Control-Allow-Origin','*');
         return $response;
     }
 
@@ -98,6 +100,7 @@ class ApiController extends Controller
 
         $response = new JsonResponse();
         $response->setData($respuesta);
+        $response->headers->set('Access-Control-Allow-Origin','*');
         return $response;
     }
 }

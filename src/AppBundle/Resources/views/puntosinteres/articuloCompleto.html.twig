@@ -2,10 +2,12 @@
 {% block title %} {{ puntoInteres.nombre }} {% endblock %}
 {% block body %}
 
-    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    
     <script>
     var myCenter=new google.maps.LatLng({{ puntoInteres.latitud }},{{ puntoInteres.longitud }});
     function initialize() {
+      
+
       var mapProp = {
         center: myCenter,
         zoom:15,
@@ -23,7 +25,6 @@
     
     <article class="articulo-punto-interes well">
         
-        <div class="categorias-puntos-interes" style="float: right">
             {% for cat in puntoInteres.categoria %}
                 <div class="label label-success">{{ cat.nombre }}</div><br/>
             {% endfor %}
