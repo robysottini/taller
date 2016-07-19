@@ -37,7 +37,7 @@ class ApiController extends Controller
                 'id' => $punto->getId(),
                 'nombre' => $punto->getNombre(),
                 'descripcion' => $punto->getDescripcion(),
-                'url-imagen' => $foto
+                'urlImagen' => $foto
                 );
             array_push($respuesta, $res);
         }
