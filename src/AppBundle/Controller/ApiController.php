@@ -63,14 +63,14 @@ class ApiController extends Controller
             'id' => $punto->getId(),
             'nombre' => $punto->getNombre(),
             'descripcion' => $punto->getDescripcion(),
-            'url-imagen' => $foto,
+            'urlImagen' => $foto,
             'latitud' => $punto->getLatitud(),
             'longitud' => $punto->getLongitud(),
             'direccion' => $punto->getDireccion()
-            );
+        );
         $response = new JsonResponse();
         $response->setData($res);
-        $response->headers->set('Access-Control-Allow-Origin','*');
+        $response->headers->set('Access-Control-Allow-Origin', '*');
         return $response;
     }
 

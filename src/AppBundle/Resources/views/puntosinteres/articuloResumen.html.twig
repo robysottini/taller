@@ -8,8 +8,8 @@
         </div>
         <div class="media-body">
             <h4 class="media-heading">{{ puntoInteres.nombre }}</h4>
-            <p>{{puntoInteres.descripcion}}</p>            
-            <div class="categorias-puntos-interes">              
+            <p>{{puntoInteres.descripcion}}</p>
+            <div class="categorias-puntos-interes">
                 {% if is_granted('ROLE_SUPER_ADMIN') %}
                     <a href="{{ path('puntointeres_edit', { 'id': puntoInteres.id }) }}" class="btn btn-primary" style="float: right">
                         <span class="glyphicon glyphicon-pencil"></span> Editar
@@ -17,13 +17,13 @@
                     {% else %}
                     <a href="{{ path('puntosinteres_completo', { 'id': puntoInteres.id }) }}" class="btn btn-success" style="float: right">
                         <span class="glyphicon glyphicon-ok"> Ampliar</span>
-                    </a>  
+                    </a>
                 {% endif %}
 
                 {% for cat in puntoInteres.categoria %}    
-                    <div class="label label-info">{{ cat.nombre }}</div>    
-                {% endfor %}    
-            </div>    
-        </div>    
-    </div>    
-</article>   
+                    <div class="label label-info">{{ cat.nombre }}</div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</article> 
