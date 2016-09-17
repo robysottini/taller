@@ -31,13 +31,11 @@ class PuntoInteres
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Assert\NotBlank()
      */
     protected $latitud;
 
     /**
      * @ORM\Column(type="string", length=50)
-     * @Assert\NotBlank()
      */
     protected $longitud;
 
@@ -59,7 +57,6 @@ class PuntoInteres
 
     /**
      * @ORM\ManyToMany(targetEntity="Categoria", cascade={"persist"})
-     * @Assert\NotBlank()
      */
     protected $categoria;
 
@@ -228,5 +225,15 @@ class PuntoInteres
     {
         $this->precios[] = $aPrecios;
         $aPrecios->setPuntoInteres($this);
+    }
+
+    public function getImagenPrincipalUrl()
+    {
+        if ($this->fotos->isEmpty()) {
+            return '';
+        }
+        else {
+            return $this->fotos[0]->getLink();
+        }
     }
 }
