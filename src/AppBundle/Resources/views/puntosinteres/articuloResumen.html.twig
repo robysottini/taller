@@ -1,10 +1,12 @@
 <article class="well">
-    {% set varImg = puntoInteres.fotos[0].link %}
+    
     <div class="media">
         <div class="media-left">
+            {% if not puntoInteres.fotos.isEmpty %}
             <a href="#">
-                <img class="media-object img-thumbnail" src="{{ varImg }}" style="width: 150px">
+                <img class="media-object img-thumbnail" src="{{ puntoInteres.imagenPrincipalUrl }}" style="width: 150px">
             </a>
+            {% endif %}
         </div>
         <div class="media-body">
             <h4 class="media-heading">{{ puntoInteres.nombre }}</h4>
