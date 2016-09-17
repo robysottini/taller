@@ -6,6 +6,7 @@ use AppBundle\Entity\Foto;
 use AppBundle\Entity\PuntoInteres;
 use AppBundle\Entity\Video;
 use AppBundle\Form\PuntoInteresType;
+use AppBundle\Form\PuntoInteresCreateType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -44,16 +45,22 @@ class PuntoInteresController extends Controller
     public function newAction(Request $request)
     {
         $puntoInteres = new PuntoInteres();
-        $form = $this->createForm('AppBundle\Form\PuntoInteresType', $puntoInteres);
+        $form = $this->createForm('AppBundle\Form\PuntoInteresCreateType', $puntoInteres);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid())
         {
             $em = $this->getDoctrine()->getManager();
+
+            $puntoInteres->setLinkInteres('http://');
+            $puntoInteres->setLatitud(0);
+            $puntoInteres->setLongitud(0);
+            $puntoInteres->setDireccion('');
+
             $em->persist($puntoInteres);
             $em->flush();
 
-            return $this->redirectToRoute('puntointeres_show', array('id' => $puntoInteres->getId()));
+            return $this->redirectToRoute('puntointeres_index');
         }
 
         return $this->render('puntointeres/new.html.twig', array(
@@ -126,7 +133,7 @@ class PuntoInteresController extends Controller
             $em->persist($puntoInteres);
             $em->flush();
 
-            return $this->redirectToRoute('puntointeres_edit', array('id' => $puntoInteres->getId()));
+            return $this->redirectToRoute('puntointeres_index');
         }
 
         return $this->render('puntointeres/edit.html.twig', array(

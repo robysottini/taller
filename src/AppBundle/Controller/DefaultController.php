@@ -13,8 +13,7 @@ class DefaultController extends Controller
      */
     public function indexPublicoAction(Request $request)
     {
-        // replace this example code with whatever you need
-        return $this->render('inicio.html.twig');
+        return $this->redirectToRoute('puntosinteres_index');
     }
 
     /**
